@@ -1,0 +1,415 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  Play, 
+  CreditCard, 
+  MessageCircle, 
+  Search, 
+  ShieldCheck, 
+  Zap, 
+  Copy, 
+  Check, 
+  ExternalLink,
+  ChevronRight,
+  Info,
+  Clock,
+  Tv,
+  Star,
+  Smartphone,
+  Settings,
+  QrCode,
+  Share2
+} from 'lucide-react';
+
+/**
+ * APP STREAMING DCR - PREMIUM EDITION
+ * Optimizada para SEO y Google Search
+ */
+
+const App = () => {
+  const [showSplash, setShowSplash] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [copiedId, setCopiedId] = useState(null);
+
+  // URL dinámica para compartir
+  const currentUrl = window.location.href;
+
+  // Datos de Servicios Actualizados
+  const services = [
+    {
+      id: 1,
+      name: "Netflix 4K",
+      icon: <Play className="text-white" />,
+      color: "bg-red-600",
+      plans: [
+        { label: "C. Completa (4 Disp) 30 días", price: 7 },
+        { label: "C. Completa (4 Disp) 60 días", price: 13 },
+        { label: "C. Completa (4 Disp) 90 días", price: 17 },
+        { label: "1 Dispositivo Solo (80 días)", price: 5, highlight: true }
+      ]
+    },
+    {
+      id: 8,
+      name: "Servicio Técnico",
+      icon: <Smartphone className="text-white" />,
+      color: "bg-slate-800",
+      subtitle: "Reparación Profesional de Celulares",
+      plans: [
+        { label: "Cambio de Pantallas (Desde)", price: 25 },
+        { label: "Cambio de Baterías (Desde)", price: 15 },
+        { label: "Pines / Placas de Carga", price: 10 },
+        { label: "Mantenimiento y Limpieza", price: 10, highlight: true }
+      ]
+    },
+    {
+      id: 2,
+      name: "Flujo TV",
+      icon: <Tv className="text-white" />,
+      color: "bg-blue-500",
+      subtitle: "Hasta 3 Dispositivos Simultáneos",
+      plans: [
+        { label: "Plan 1 Mes", price: 6.50 },
+        { label: "Plan 4 Meses", price: 20 },
+        { label: "Plan 9 Meses", price: 40 },
+        { label: "Plan 17 Meses", price: 70 }
+      ]
+    },
+    {
+      id: 3,
+      name: "Disney+ Premium",
+      icon: <Star className="text-white" />,
+      color: "bg-indigo-700",
+      plans: [
+        { label: "C. Completa (4 Disp) 30 días", price: 8 }
+      ]
+    },
+    {
+      id: 4,
+      name: "YouTube Premium",
+      icon: <Play className="text-white" />,
+      color: "bg-red-700",
+      plans: [
+        { label: "Plan 1 Mes", price: 4 },
+        { label: "Plan 3 Meses", price: 9 }
+      ]
+    },
+    {
+      id: 5,
+      name: "Spotify Premium",
+      icon: <Info className="text-white" />,
+      color: "bg-green-600",
+      plans: [
+        { label: "Plan 1 Mes", price: 4 },
+        { label: "Plan 3 Meses", price: 9 }
+      ]
+    },
+    {
+      id: 6,
+      name: "Prime Video",
+      icon: <ExternalLink className="text-white" />,
+      color: "bg-cyan-500",
+      plans: [
+        { label: "C. Completa (3 Disp) 30 días", price: 4 }
+      ]
+    },
+    {
+      id: 7,
+      name: "HBO & Otros",
+      icon: <Zap className="text-white" />,
+      color: "bg-purple-600",
+      plans: [
+        { label: "HBO MAX (MAX) Completa", price: 4 },
+        { label: "Crunchyroll Completa", price: 4 },
+        { label: "Paramount (2 Disp)", price: 3 }
+      ]
+    }
+  ];
+
+  const banks = [
+    {
+      name: "Banco Pichincha",
+      owner: "DARWIN CAÑAR",
+      number: "2206498570",
+      type: "Ahorros",
+      idCard: "1716552888",
+      color: "border-yellow-400"
+    },
+    {
+      name: "Banco Guayaquil",
+      owner: "DARWIN CAÑAR",
+      number: "20380913",
+      type: "Ahorros",
+      color: "border-pink-500"
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowSplash(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const copyToClipboard = (text, id) => {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+      document.execCommand('copy');
+      setCopiedId(id);
+      setTimeout(() => setCopiedId(null), 2000);
+    } catch (err) {
+      console.error('Error al copiar', err);
+    }
+    document.body.removeChild(textArea);
+  };
+
+  const filteredServices = services.filter(s => 
+    s.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  if (showSplash) {
+    return (
+      <div className="fixed inset-0 bg-[#001f3f] flex flex-col items-center justify-center z-50">
+        <div className="w-32 h-32 bg-white p-2 rounded-full mb-6 shadow-2xl animate-bounce">
+          <img src="257623.jpg" alt="Logo DCR" className="w-full h-full object-contain rounded-full" />
+        </div>
+        <h1 className="text-white text-3xl font-black italic tracking-tighter uppercase">Streaming <span className="text-[#c5a059]">DCR</span></h1>
+        <div className="mt-8 flex gap-2">
+          <div className="w-3 h-3 bg-[#c5a059] rounded-full animate-pulse"></div>
+          <div className="w-3 h-3 bg-white rounded-full animate-pulse delay-75"></div>
+          <div className="w-3 h-3 bg-[#c5a059] rounded-full animate-pulse delay-150"></div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-slate-100 text-slate-900 font-sans pb-10">
+      {/* Header Estilo App Compacto */}
+      <header className="bg-[#001f3f] text-white pt-6 pb-6 px-6 rounded-b-[2.5rem] shadow-2xl sticky top-0 z-40">
+        <div className="flex justify-between items-center mb-4">
+          <div className="flex items-center gap-3">
+            <div className="bg-white p-0.5 rounded-full shadow-lg border-2 border-[#c5a059]">
+              <img src="257623.jpg" className="w-10 h-10 rounded-full object-contain" alt="DCR Logo" />
+            </div>
+            <div>
+              <h2 className="text-lg font-black italic tracking-tighter leading-tight uppercase">Streaming D.C.R.</h2>
+              <div className="flex items-center gap-1">
+                <ShieldCheck size={10} className="text-[#c5a059]" />
+                <p className="text-[9px] text-[#c5a059] font-bold uppercase tracking-widest">Premium Ecuador</p>
+              </div>
+            </div>
+          </div>
+          <button 
+            onClick={() => copyToClipboard(currentUrl, 'main-link')}
+            className="bg-white/10 p-2 rounded-xl shadow-lg active:scale-90 transition-transform flex items-center gap-2 border border-white/10"
+          >
+            {copiedId === 'main-link' ? <Check size={16} className="text-green-400" /> : <Share2 size={16} className="text-[#c5a059]" />}
+            <span className="text-[9px] font-bold uppercase tracking-tight">Compartir</span>
+          </button>
+        </div>
+
+        <div className="relative group">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[#c5a059] transition-colors" size={16} />
+          <input 
+            type="text" 
+            placeholder="¿Qué servicio buscas?" 
+            className="w-full bg-white/10 border border-white/20 rounded-xl py-2.5 pl-10 pr-4 text-xs focus:outline-none focus:bg-white focus:text-slate-900 transition-all placeholder:text-slate-400 shadow-inner"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="px-5 -mt-3 relative z-10 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+        
+        {/* SECCIÓN 1: CATÁLOGO DE SERVICIOS */}
+        <section className="space-y-6 pt-4">
+          <div className="px-1">
+            <h3 className="text-2xl font-black uppercase italic text-[#001f3f] border-l-[10px] border-[#c5a059] pl-4 tracking-tighter">
+              Catálogo de Servicios
+            </h3>
+            <div className="flex items-center gap-2 mt-2 ml-4">
+              <div className="flex items-center gap-1 bg-green-100 px-2 py-0.5 rounded-full">
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                <span className="text-[9px] text-green-700 font-bold tracking-widest uppercase">Activo</span>
+              </div>
+              <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Precios Ecuador 2024</p>
+            </div>
+          </div>
+
+          <div className="space-y-5">
+            {filteredServices.map((service) => (
+              <div key={service.id} className="bg-white rounded-[2rem] p-5 shadow-md border border-slate-200/60 overflow-hidden relative group active:shadow-inner transition-all">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className={`${service.color} w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transform -rotate-2 group-hover:rotate-0 transition-transform`}>
+                      {service.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-black text-lg uppercase italic leading-none text-[#001f3f]">{service.name}</h4>
+                      {service.subtitle && <p className="text-[9px] text-slate-400 font-bold uppercase mt-1 tracking-tight">{service.subtitle}</p>}
+                    </div>
+                  </div>
+                  <ChevronRight size={20} className="text-slate-200" />
+                </div>
+
+                <div className="space-y-2.5">
+                  {service.plans.map((plan, idx) => (
+                    <div 
+                      key={idx} 
+                      className={`flex justify-between items-center p-3.5 rounded-xl transition-all ${plan.highlight ? 'bg-orange-50 border border-orange-100 scale-[1.01] shadow-sm' : 'bg-slate-50 border border-slate-100'}`}
+                    >
+                      <div className="flex items-center gap-2 text-xs">
+                        {plan.highlight && <Settings size={12} className="text-orange-600 animate-spin-slow" />}
+                        <span className={`${plan.highlight ? 'font-bold text-orange-900' : 'text-slate-600'}`}>{plan.label}</span>
+                      </div>
+                      <span className={`font-black ${plan.highlight ? 'text-orange-600 text-md' : 'text-[#001f3f] text-md'}`}>${plan.price.toFixed(2)}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <button 
+                  onClick={() => window.open('https://wa.link/4x8ojw')}
+                  className="w-full mt-5 bg-[#001f3f] hover:bg-black text-white py-3.5 rounded-xl font-black text-xs flex items-center justify-center gap-3 active:scale-95 transition-all shadow-lg uppercase"
+                >
+                  <MessageCircle size={18} /> Consultar / Solicitar
+                </button>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* MÉTODOS DE PAGO */}
+        <section className="space-y-5">
+          <div className="flex items-center justify-between px-2">
+            <h3 className="text-md font-black uppercase italic text-slate-700 border-l-4 border-[#c5a059] pl-3">Métodos de Pago</h3>
+            <CreditCard size={18} className="text-slate-400" />
+          </div>
+          
+          <div className="bg-[#001f3f] text-white p-6 rounded-[2.5rem] shadow-2xl relative overflow-hidden border-b-8 border-[#c5a059]">
+             <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/5 rounded-full"></div>
+             <Info className="absolute top-4 right-4 text-white/10" size={40} />
+             <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] mb-3 text-[#c5a059]">Importante</h4>
+             <p className="text-xs font-medium leading-relaxed opacity-90">
+               Copia el número de cuenta aquí mismo y envía el comprobante por WhatsApp para activar tu servicio.
+             </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-5">
+            {banks.map((bank, idx) => (
+              <div key={idx} className={`bg-white rounded-[2rem] p-6 border-l-[10px] ${bank.color} shadow-lg relative active:bg-slate-50 transition-colors`}>
+                <div className="flex justify-between items-start mb-5">
+                  <div>
+                    <p className="text-[9px] text-slate-400 font-bold uppercase tracking-widest mb-1">Banco</p>
+                    <h4 className="font-black text-xl text-slate-800 tracking-tight">{bank.name}</h4>
+                  </div>
+                  <div className="p-2 bg-slate-50 rounded-xl">
+                    <CreditCard className="text-slate-300" size={24} />
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div 
+                    className="bg-slate-50 p-4 rounded-[1.2rem] flex justify-between items-center group cursor-pointer active:scale-[0.98] transition-transform border border-slate-100 shadow-inner" 
+                    onClick={() => copyToClipboard(bank.number, bank.number)}
+                  >
+                    <div>
+                      <p className="text-[9px] text-slate-400 font-bold uppercase mb-0.5">Número de Cuenta</p>
+                      <p className="text-xl font-black text-blue-900 tracking-tighter">{bank.number}</p>
+                    </div>
+                    <div className={`p-2.5 rounded-lg transition-all ${copiedId === bank.number ? 'bg-green-500 text-white shadow-green-200' : 'bg-white shadow-md text-slate-400'}`}>
+                      {copiedId === bank.number ? <Check size={18} /> : <Copy size={18} />}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3 px-2">
+                    <div>
+                      <p className="text-[9px] text-slate-400 font-bold uppercase mb-0.5 tracking-tighter">Titular</p>
+                      <p className="font-bold text-xs text-slate-800 uppercase leading-tight">{bank.owner}</p>
+                    </div>
+                    <div>
+                      <p className="text-[9px] text-slate-400 font-bold uppercase mb-0.5 tracking-tighter">Tipo</p>
+                      <p className="font-bold text-xs text-slate-800 uppercase leading-tight">{bank.type}</p>
+                    </div>
+                  </div>
+
+                  {bank.idCard && (
+                    <div 
+                      className="pt-3 border-t border-slate-100 flex justify-between items-center px-2 cursor-pointer active:opacity-50" 
+                      onClick={() => copyToClipboard(bank.idCard, bank.idCard)}
+                    >
+                      <p className="text-[11px] text-slate-500 font-bold">CI: <span className="text-slate-900">{bank.idCard}</span></p>
+                      <div className="flex items-center gap-1">
+                        <span className="text-[9px] text-blue-600 font-black uppercase tracking-tighter">Copiar CI</span>
+                        {copiedId === bank.idCard && <Check size={8} className="text-green-500" />}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* QR COMPARTIR */}
+        <section className="space-y-5">
+          <div className="flex items-center justify-between px-2">
+            <h3 className="text-md font-black uppercase italic text-slate-700 border-l-4 border-[#c5a059] pl-3">Escanear App</h3>
+            <QrCode size={18} className="text-slate-400" />
+          </div>
+
+          <div className="bg-white rounded-[2.5rem] p-6 shadow-xl border border-slate-100 text-center flex flex-col items-center">
+            <div className="bg-slate-50 p-5 rounded-[2rem] mb-5 shadow-inner border border-slate-100">
+              <img 
+                src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(currentUrl)}&bgcolor=f8fafc&color=001f3f`} 
+                alt="QR Code" 
+                className="w-40 h-40"
+              />
+            </div>
+            
+            <h4 className="font-black text-[#001f3f] text-lg uppercase italic mb-1.5 tracking-tight tracking-widest">Catálogo DCR</h4>
+            <p className="text-slate-400 text-[10px] px-4 mb-6 uppercase font-bold tracking-widest leading-tight">Muestra este código para que tus clientes te encuentren en Google</p>
+
+            <div className="w-full space-y-3.5">
+              <button 
+                onClick={() => copyToClipboard(currentUrl, 'share-bottom')}
+                className="w-full bg-[#c5a059] text-white py-3.5 rounded-xl font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-all"
+              >
+                {copiedId === 'share-bottom' ? <Check size={16} /> : <Share2 size={16} />}
+                {copiedId === 'share-bottom' ? 'Link Copiado' : 'Copiar Link para Compartir'}
+              </button>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      {/* Footer */}
+      <footer className="mt-16 py-10 text-center bg-white border-t border-slate-100 rounded-t-[3rem] shadow-sm">
+        <div className="flex justify-center mb-5">
+          <img src="257623.jpg" className="w-16 h-16 rounded-full border border-slate-100 shadow-sm" alt="Footer Logo" />
+        </div>
+        <p className="text-[#c5a059] font-black text-xl mb-1 italic tracking-tighter uppercase leading-none">Streaming D.C.R.</p>
+        <p className="text-gray-400 text-[9px] tracking-[0.3em] uppercase mb-6 px-10 leading-relaxed font-bold">Tu tienda de confianza en Google • Ecuador 2024</p>
+        
+        <div className="flex justify-center gap-8 text-slate-300">
+          <ShieldCheck size={20} />
+          <Zap size={20} />
+          <Smartphone size={20} />
+        </div>
+      </footer>
+
+      {/* Notificación Copiado */}
+      {copiedId && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-6 py-2.5 rounded-full text-[10px] font-black animate-in fade-in slide-in-from-bottom-10 duration-500 z-[60] shadow-2xl tracking-widest border border-white/10 uppercase">
+          ¡Copiado!
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default App;
+
+            
