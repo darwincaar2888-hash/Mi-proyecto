@@ -1,80 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Streaming DCR</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streaming DCR</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-<style>
-body { font-family: sans-serif; }
-.splash { transition: 0.5s; }
-.hide { opacity:0; visibility:hidden; }
-</style>
-
+  <style>
+    body { font-family: sans-serif; }
+    .splash { transition: 0.5s; }
+    .hide { opacity: 0; visibility: hidden; }
+  </style>
 </head>
 
 <body class="bg-slate-100">
 
-<!-- SPLASH -->
-<div id="splash" class="fixed inset-0 bg-[#001f3f] flex items-center justify-center text-white text-2xl font-bold splash">
-Streaming DCR
-</div>
+  <!-- SPLASH -->
+  <div id="splash" class="fixed inset-0 bg-[#001f3f] flex items-center justify-center text-white text-2xl font-bold splash">
+    Streaming DCR
+  </div>
 
-<!-- APP -->
-<div id="app" class="opacity-0 transition duration-500">
+  <!-- APP -->
+  <div id="app" class="opacity-0 transition duration-500">
 
-<header class="bg-[#001f3f] text-white p-4 text-center font-bold">
-Streaming DCR
-</header>
+    <header class="bg-[#001f3f] text-white p-4 text-center font-bold">
+      Streaming DCR
+    </header>
 
-<main class="p-4 space-y-6">
+    <main class="p-4 space-y-6">
 
-<input id="search" placeholder="Buscar..." class="w-full p-2 rounded border" oninput="render()">
+      <input 
+        id="search" 
+        placeholder="Buscar..." 
+        class="w-full p-2 rounded border"
+        oninput="render()"
+      >
 
-<div id="catalog"></div>
+      <div id="catalog"></div>
 
-</main>
+    </main>
+  </div>
 
-</div>
+  <script>
+    const services = [
+      { name: "Netflix", price: "$7" },
+      { name: "Disney+", price: "$8" },
+      { name: "Spotify", price: "$4" },
+      { name: "Prime Video", price: "$4" }
+    ];
 
-<script>
+    function render() {
+      let search = document.getElementById("search").value.toLowerCase();
+      let html = "";
 
-const services = [
-{name:"Netflix",price:7},
-{name:"Disney+",price:8},
-{name:"Spotify",price:4},
-{name:"Prime Video",price:4}
-];
+      services
+        .filter(s => s.name.toLowerCase().includes(search))
+        .forEach(s => {
+          html += `
+            <div class="bg-white p-4 rounded shadow mb-2">
+              <b>${s.name}</b>
+              <div>${s.price}</div>
+            </div>
+          `;
+        });
 
-function render(){
-let search = document.getElementById("search").value.toLowerCase();
-let html = "";
+      document.getElementById("catalog").innerHTML = html;
+    }
 
-services
-.filter(s=>s.name.toLowerCase().includes(search))
-.forEach(s=>{
-html+=`
-<div class="bg-white p-4 rounded shadow">
-<b>${s.name}</b>
-<div>$${s.price}</div>
-</div>
-`;
-});
+    render();
 
-document.getElementById("catalog").innerHTML = html;
-}
-
-render();
-
-// splash
-setTimeout(()=>{
-document.getElementById("splash").classList.add("hide");
-document.getElementById("app").classList.remove("opacity-0");
-},1500);
-
-</script>
+    // splash
+    setTimeout(() => {
+      document.getElementById("splash").classList.add("hide");
+      document.getElementById("app").classList.remove("opacity-0");
+    }, 1500);
+  </script>
 
 </body>
 </html>
