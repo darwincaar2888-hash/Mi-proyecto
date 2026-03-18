@@ -1,96 +1,505 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Streaming DCR</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D.C.R entretenimiento ec | Catálogo premium</title>
+  <meta name="description" content="Catálogo premium de streaming, servicio técnico y métodos de pago de D.C.R entretenimiento ec." />
+  <meta name="theme-color" content="#061b3a" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: Arial, sans-serif; }
+    .glass {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .card-hover {
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 35px rgba(15, 23, 42, 0.14);
+    }
+    .fade-up {
+      animation: fadeUp .45s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
-
 <body class="bg-slate-100 text-slate-900">
 
-<!-- SPLASH -->
-<div id="splash" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#061b3a] text-white">
-  <div class="w-24 h-24 rounded-full bg-white/10 flex items-center justify-center text-3xl font-bold mb-5">
-    DCR
-  </div>
-  <h1 class="text-3xl font-bold">Streaming DCR</h1>
-  <p class="text-slate-300 mt-2">Catálogo premium</p>
-</div>
-
-<!-- APP -->
-<div id="app" class="hidden">
-
-<header class="bg-[#061b3a] text-white p-4 flex justify-between items-center">
-  <div>
-    <h1 class="font-bold text-lg">Streaming DCR</h1>
-    <p class="text-xs text-slate-300">Premium Ecuador</p>
+  <!-- Splash -->
+  <div id="splash" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#061b3a] text-white">
+    <div class="w-28 h-28 rounded-full border border-white/20 bg-white/10 flex items-center justify-center shadow-2xl text-center px-3">
+      <span class="text-xl font-extrabold leading-tight">D.C.R</span>
+    </div>
+    <h1 class="mt-6 text-3xl font-extrabold tracking-tight text-center">D.C.R entretenimiento ec</h1>
+    <p class="mt-2 text-slate-300 text-sm">Catálogo premium</p>
+    <div class="mt-6 flex gap-2">
+      <span class="w-3 h-3 rounded-full bg-amber-400 animate-pulse"></span>
+      <span class="w-3 h-3 rounded-full bg-white animate-pulse"></span>
+      <span class="w-3 h-3 rounded-full bg-amber-400 animate-pulse"></span>
+    </div>
   </div>
 
-  <a href="https://wa.link/4x8ojw" target="_blank"
-    class="bg-green-500 px-4 py-2 rounded-xl font-bold">
-    WhatsApp
-  </a>
-</header>
+  <!-- App -->
+  <div id="app" class="hidden">
 
-<main class="p-4 space-y-6">
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-[#061b3a]/95 glass border-b border-white/10 shadow-lg">
+      <div class="max-w-6xl mx-auto px-4 py-4">
+        <div class="flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3 min-w-0">
+            <div class="w-12 h-12 shrink-0 rounded-2xl bg-white text-[#061b3a] flex items-center justify-center font-extrabold shadow">
+              DCR
+            </div>
+            <div class="min-w-0">
+              <h1 class="text-white text-lg md:text-xl font-extrabold leading-tight truncate">D.C.R entretenimiento ec</h1>
+              <p class="text-slate-300 text-xs uppercase tracking-[0.18em]">Premium Ecuador</p>
+            </div>
+          </div>
 
-<section class="bg-white p-5 rounded-2xl shadow">
-  <h2 class="text-xl font-bold">Catálogo</h2>
+          <div class="flex items-center gap-2 shrink-0">
+            <button onclick="copyPageLink()" class="rounded-xl bg-white/10 text-white px-3 py-2 text-sm font-semibold border border-white/10 hover:bg-white/15">
+              Compartir
+            </button>
+            <a href="#pagos" class="rounded-xl bg-amber-400 text-slate-900 px-3 py-2 text-sm font-bold hover:bg-amber-300">
+              Pagar
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
 
-  <input id="search" type="text" placeholder="Buscar..."
-    class="w-full mt-3 p-3 border rounded-xl"
-    oninput="render()">
+    <!-- Hero -->
+    <section class="max-w-6xl mx-auto px-4 pt-6 pb-4">
+      <div class="rounded-3xl bg-gradient-to-br from-[#061b3a] via-[#0c2c59] to-[#12407d] text-white p-6 md:p-8 shadow-xl overflow-hidden relative">
+        <div class="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-white/10"></div>
+        <div class="absolute right-8 bottom-[-25px] w-28 h-28 rounded-full bg-amber-400/20"></div>
 
-  <div id="catalog" class="mt-4 space-y-4"></div>
-</section>
+        <div class="relative z-10 grid md:grid-cols-[1.15fr_0.85fr] gap-6 items-center">
+          <div>
+            <span class="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-bold tracking-wider uppercase border border-white/10">
+              Activo · Atención rápida
+            </span>
 
-</main>
+            <h2 class="mt-4 text-3xl md:text-4xl font-extrabold leading-tight">
+              Streaming, servicio técnico y pagos rápidos en un solo lugar
+            </h2>
 
-</div>
+            <p class="mt-3 text-slate-200 text-sm md:text-base max-w-2xl">
+              Revisa precios, busca tus servicios y confirma por WhatsApp con atención directa de D.C.R entretenimiento ec.
+            </p>
 
-<script>
-const services = [
-  {name:"Netflix 4K", plans:["30 días $7","60 días $13","90 días $17","Perfil $5"]},
-  {name:"Disney+", plans:["30 días $8"]},
-  {name:"Spotify", plans:["1 mes $4","3 meses $9"]},
-  {name:"Prime Video", plans:["30 días $4"]},
-];
+            <div class="mt-5 flex flex-wrap gap-3">
+              <a href="#catalogo" class="rounded-2xl bg-amber-400 px-4 py-3 text-sm font-bold text-slate-900 hover:bg-amber-300">
+                Ver catálogo
+              </a>
+              <a href="#pagos" class="rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-sm font-bold text-white hover:bg-white/15">
+                Métodos de pago
+              </a>
+            </div>
+          </div>
 
-function render(){
-  let search = document.getElementById("search").value.toLowerCase();
-  let html = "";
+          <div class="grid grid-cols-2 gap-3">
+            <div class="rounded-2xl bg-white/10 border border-white/10 p-4">
+              <div class="text-2xl">🎬</div>
+              <div class="mt-2 text-sm font-bold">Streaming</div>
+              <div class="text-xs text-slate-300">Netflix, Disney+, Prime y más</div>
+            </div>
+            <div class="rounded-2xl bg-white/10 border border-white/10 p-4">
+              <div class="text-2xl">📱</div>
+              <div class="mt-2 text-sm font-bold">Servicio técnico</div>
+              <div class="text-xs text-slate-300">Pantallas, baterías y limpieza</div>
+            </div>
+            <div class="rounded-2xl bg-white/10 border border-white/10 p-4">
+              <div class="text-2xl">💳</div>
+              <div class="mt-2 text-sm font-bold">Pagos rápidos</div>
+              <div class="text-xs text-slate-300">Copia la cuenta y confirma</div>
+            </div>
+            <div class="rounded-2xl bg-white/10 border border-white/10 p-4">
+              <div class="text-2xl">✅</div>
+              <div class="mt-2 text-sm font-bold">Atención directa</div>
+              <div class="text-xs text-slate-300">Respuesta por WhatsApp</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  services
-  .filter(s => s.name.toLowerCase().includes(search))
-  .forEach(s=>{
-    html += `
-    <div class="bg-slate-50 p-4 rounded-xl shadow">
-      <b>${s.name}</b>
-      ${s.plans.map(p=>`<div>${p}</div>`).join("")}
-      <a href="https://wa.link/4x8ojw"
-      class="block mt-3 bg-[#061b3a] text-white text-center p-2 rounded-xl">
-      Solicitar
-      </a>
-    </div>`;
-  });
+    <!-- Catálogo -->
+    <section id="catalogo" class="max-w-6xl mx-auto px-4 py-4">
+      <div class="flex items-center justify-between gap-3 mb-4">
+        <div>
+          <h3 class="text-2xl font-extrabold tracking-tight text-slate-900">Catálogo de servicios</h3>
+          <p class="text-slate-500 text-sm">Busca y compara tus planes</p>
+        </div>
+        <div class="text-xs bg-green-100 text-green-700 px-3 py-1.5 rounded-full font-bold">
+          Disponible
+        </div>
+      </div>
 
-  document.getElementById("catalog").innerHTML = html;
-}
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-sm p-5 mb-5">
+        <div class="relative">
+          <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">🔎</span>
+          <input
+            id="search"
+            type="text"
+            placeholder="Buscar Netflix, Disney+, Spotify, reparación..."
+            class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-12 py-3 text-sm outline-none focus:ring-2 focus:ring-amber-400"
+            oninput="renderServices()"
+          />
+        </div>
+      </div>
 
-render();
+      <div id="emptyState" class="hidden rounded-3xl border border-dashed border-slate-300 bg-white p-8 text-center text-slate-500">
+        No se encontraron resultados para tu búsqueda.
+      </div>
 
+      <div id="catalog" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"></div>
+    </section>
 
-// 🔥 FIX IMPORTANTE (NO SE QUEDA PEGADO)
-setTimeout(function() {
-  const splash = document.getElementById("splash");
-  const app = document.getElementById("app");
+    <!-- Pagos -->
+    <section id="pagos" class="max-w-6xl mx-auto px-4 py-8">
+      <div class="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+        <div class="rounded-3xl bg-[#061b3a] text-white p-6 shadow-xl">
+          <div class="inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wider border border-white/10">
+            Métodos de pago
+          </div>
 
-  if (splash) splash.style.display = "none";
-  if (app) app.classList.remove("hidden");
-}, 1200);
+          <h3 class="mt-4 text-2xl font-extrabold">Envía el comprobante por WhatsApp</h3>
 
-</script>
+          <p class="mt-3 text-slate-300 text-sm leading-6">
+            Copia tu número de cuenta, realiza tu transferencia y envía el comprobante para activar tu servicio.
+          </p>
 
-</body>
-</html>
+          <div class="mt-5 rounded-2xl bg-white/10 border border-white/10 p-4">
+            <div class="text-sm font-bold">WhatsApp directo</div>
+            <div class="text-slate-300 text-sm mt-1">Atención rápida para pedidos y confirmaciones</div>
+            <a
+              href="https://wa.link/4x8ojw"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-4 inline-block rounded-xl bg-green-500 px-4 py-2.5 text-sm font-bold text-white hover:bg-green-600"
+            >
+              Abrir WhatsApp
+            </a>
+          </div>
+
+          <div class="mt-5 rounded-2xl bg-amber-400/10 border border-amber-300/30 p-4 text-sm text-amber-100">
+            Consejo: toca el número de cuenta o la cédula para copiarla automáticamente.
+          </div>
+        </div>
+
+        <div id="banks" class="grid gap-4 md:grid-cols-2"></div>
+      </div>
+    </section>
+
+    <!-- QR -->
+    <section class="max-w-6xl mx-auto px-4 pb-10">
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-sm p-6">
+        <div class="grid md:grid-cols-[0.8fr_1.2fr] gap-6 items-center">
+          <div class="text-center">
+            <div class="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-slate-600">
+              Compartir catálogo
+            </div>
+
+            <div class="mt-4 inline-flex rounded-3xl bg-slate-50 p-4 border border-slate-200">
+              <img id="qrImage" alt="QR" class="w-44 h-44 rounded-2xl" />
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-extrabold tracking-tight">Acceso directo a tu catálogo</h3>
+            <p class="mt-2 text-slate-500 text-sm">
+              Comparte este enlace o muestra el QR para que tus clientes entren rápido a tu página.
+            </p>
+
+            <div class="mt-5 flex flex-col sm:flex-row gap-3">
+              <button onclick="copyPageLink()" class="rounded-2xl bg-amber-400 px-4 py-3 text-sm font-bold text-slate-900 hover:bg-amber-300">
+                Copiar enlace
+              </button>
+
+              <a
+                href="https://wa.link/4x8ojw"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-2xl bg-green-500 px-4 py-3 text-sm font-bold text-white text-center hover:bg-green-600"
+              >
+                Enviar comprobante
+              </a>
+            </div>
+
+            <div class="mt-5 rounded-2xl bg-slate-50 border border-slate-200 p-4 text-sm text-slate-600">
+              Esta versión está optimizada para celular y GitHub Pages, sin React y sin errores de carga.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white">
+      <div class="max-w-6xl mx-auto px-4 py-8 text-center">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-[#061b3a] text-white flex items-center justify-center font-extrabold shadow">
+          DCR
+        </div>
+        <h4 class="mt-4 text-xl font-extrabold tracking-tight">D.C.R entretenimiento ec</h4>
+        <p class="mt-2 text-slate-500 text-sm">Tu catálogo premium online</p>
+      </div>
+    </footer>
+
+    <!-- Botón flotante -->
+    <a
+      href="https://wa.link/4x8ojw"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="fixed bottom-5 right-5 z-40 rounded-full bg-green-500 text-white shadow-2xl px-5 py-4 font-bold hover:bg-green-600"
+    >
+      WhatsApp
+    </a>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 opacity-0 pointer-events-none transition-all duration-300 bg-slate-900 text-white text-sm font-bold px-5 py-3 rounded-full shadow-2xl">
+    Copiado correctamente
+  </div>
+
+  <script>
+    const WHATSAPP_LINK = "https://wa.link/4x8ojw";
+
+    const services = [
+      {
+        name: "Netflix 4K",
+        emoji: "🎬",
+        color: "from-red-500 to-red-700",
+        subtitle: "Planes premium disponibles",
+        plans: [
+          { label: "Completa 30 días", price: "$7" },
+          { label: "Completa 60 días", price: "$13" },
+          { label: "Completa 90 días", price: "$17" },
+          { label: "1 perfil 80 días", price: "$5", highlight: true }
+        ]
+      },
+      {
+        name: "Disney+ Premium",
+        emoji: "⭐",
+        color: "from-indigo-500 to-indigo-700",
+        subtitle: "Cuenta premium",
+        plans: [
+          { label: "Completa 30 días", price: "$8" }
+        ]
+      },
+      {
+        name: "Spotify Premium",
+        emoji: "🎵",
+        color: "from-green-500 to-green-700",
+        subtitle: "Música sin anuncios",
+        plans: [
+          { label: "1 mes", price: "$4" },
+          { label: "3 meses", price: "$9" }
+        ]
+      },
+      {
+        name: "Prime Video",
+        emoji: "📺",
+        color: "from-cyan-500 to-cyan-700",
+        subtitle: "Streaming de series y películas",
+        plans: [
+          { label: "Completa 30 días", price: "$4" }
+        ]
+      },
+      {
+        name: "YouTube Premium",
+        emoji: "▶️",
+        color: "from-rose-500 to-red-700",
+        subtitle: "Videos sin anuncios",
+        plans: [
+          { label: "1 mes", price: "$4" },
+          { label: "3 meses", price: "$9" }
+        ]
+      },
+      {
+        name: "Flujo TV",
+        emoji: "📡",
+        color: "from-blue-500 to-blue-700",
+        subtitle: "Hasta 3 dispositivos simultáneos",
+        plans: [
+          { label: "Plan 1 mes", price: "$6.50" },
+          { label: "Plan 4 meses", price: "$20" },
+          { label: "Plan 9 meses", price: "$40" },
+          { label: "Plan 17 meses", price: "$70" }
+        ]
+      },
+      {
+        name: "Servicio Técnico",
+        emoji: "📱",
+        color: "from-slate-700 to-slate-900",
+        subtitle: "Reparación profesional de celulares",
+        plans: [
+          { label: "Cambio de pantalla", price: "Desde $25" },
+          { label: "Cambio de batería", price: "Desde $15" },
+          { label: "Pin de carga", price: "$10" },
+          { label: "Mantenimiento", price: "$10", highlight: true }
+        ]
+      }
+    ];
+
+    const banks = [
+      {
+        bank: "Banco Pichincha",
+        owner: "DARWIN CAÑAR",
+        number: "2206498570",
+        type: "Ahorros",
+        id: "1716552888",
+        border: "border-yellow-400"
+      },
+      {
+        bank: "Banco Guayaquil",
+        owner: "DARWIN CAÑAR",
+        number: "20380913",
+        type: "Ahorros",
+        id: "",
+        border: "border-pink-500"
+      }
+    ];
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message || "Copiado correctamente";
+      toast.classList.remove("opacity-0");
+      setTimeout(function() {
+        toast.classList.add("opacity-0");
+      }, 1800);
+    }
+
+    function copyText(text) {
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(function() {
+            showToast("Copiado correctamente");
+          }).catch(function() {
+            fallbackCopy(text);
+          });
+        } else {
+          fallbackCopy(text);
+        }
+      } catch (e) {
+        fallbackCopy(text);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const area = document.createElement("textarea");
+      area.value = text;
+      document.body.appendChild(area);
+      area.select();
+      document.execCommand("copy");
+      document.body.removeChild(area);
+      showToast("Copiado correctamente");
+    }
+
+    function copyPageLink() {
+      copyText(window.location.href);
+    }
+
+    function currencyBadge(price) {
+      return '<span class="inline-flex rounded-full bg-slate-900 text-white px-3 py-1 text-xs font-bold">' + price + '</span>';
+    }
+
+    function serviceCard(service) {
+      let plansHtml = "";
+
+      for (let i = 0; i < service.plans.length; i++) {
+        const plan = service.plans[i];
+        plansHtml +=
+          '<div class="flex items-center justify-between gap-3 rounded-2xl border ' +
+          (plan.highlight ? 'border-amber-300 bg-amber-50' : 'border-slate-200 bg-slate-50') +
+          ' px-4 py-3">' +
+            '<div class="text-sm ' +
+            (plan.highlight ? 'font-bold text-amber-900' : 'font-medium text-slate-700') +
+            '">' + plan.label + '</div>' +
+            currencyBadge(plan.price) +
+          '</div>';
+      }
+
+      return (
+        '<article class="card-hover fade-up rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden">' +
+          '<div class="p-5">' +
+            '<div class="flex items-start justify-between gap-3">' +
+              '<div class="flex items-center gap-3">' +
+                '<div class="w-14 h-14 rounded-2xl bg-gradient-to-br ' + service.color + ' text-white flex items-center justify-center text-2xl shadow">' +
+                  service.emoji +
+                '</div>' +
+                '<div>' +
+                  '<h4 class="text-lg font-extrabold tracking-tight">' + service.name + '</h4>' +
+                  '<p class="text-slate-500 text-sm">' + service.subtitle + '</p>' +
+                '</div>' +
+              '</div>' +
+              '<span class="text-slate-300 text-xl">›</span>' +
+            '</div>' +
+            '<div class="mt-5 space-y-3">' + plansHtml + '</div>' +
+            '<a href="' + WHATSAPP_LINK + '" target="_blank" rel="noopener noreferrer" class="mt-5 block w-full rounded-2xl bg-[#061b3a] px-4 py-3 text-center text-sm font-bold text-white hover:bg-[#0b2b57]">Consultar / Solicitar</a>' +
+          '</div>' +
+        '</article>'
+      );
+    }
+
+    function renderServices() {
+      const searchInput = document.getElementById("search");
+      const query = searchInput ? searchInput.value.toLowerCase().trim() : "";
+
+      const filtered = services.filter(function(service) {
+        const inName = service.name.toLowerCase().includes(query);
+        const inSubtitle = service.subtitle.toLowerCase().includes(query);
+        const inPlans = service.plans.some(function(plan) {
+          return plan.label.toLowerCase().includes(query);
+        });
+        return inName || inSubtitle || inPlans;
+      });
+
+      const catalog = document.getElementById("catalog");
+      const emptyState = document.getElementById("emptyState");
+
+      if (catalog) {
+        catalog.innerHTML = filtered.map(serviceCard).join("");
+      }
+
+      if (emptyState) {
+        if (filtered.length === 0) {
+          emptyState.classList.remove("hidden");
+        } else {
+          emptyState.classList.add("hidden");
+        }
+      }
+    }
+
+    function bankCard(bank) {
+      let idHtml = "";
+      if (bank.id) {
+        idHtml =
+          '<div class="mt-4 rounded-2xl bg-slate-50 border border-slate-200 p-3 flex items-center justify-between gap-3">' +
+            '<div>' +
+              '<div class="text-xs uppercase tracking-[0.14em] text-slate-400 font-bold">Cédula</div>' +
+              '<div class="mt-1 font-bold">' + bank.id + '</div>' +
+            '</div>' +
+            '<button onclick="copyText(\'' + bank.id + '\')" class="rounded-xl bg-white border border-slate-300 px-3 py-2 text-xs font-bold hover:bg-slate-100">Copiar</button>' +
+          '</div>';
+      }
+
+      return (
+        '<div class="rounded-3xl bg-white border border-slate-200 shadow-sm p-5 border-l-8 ' + bank.border + '">' +
+          '<div class="flex items-start justify-between gap-3">' +
+            '<div>' +
+              '<p class="text-xs uppercase tracking-[0.18em] text-slate-400 font-bold">Banco</p>' +
+              '<h4 class="mt-1 text-xl font-extrabold tracking-tight">' + bank.bank + '</h4>' +
+            '</div>' +
+            '<div class="text-2xl">💳</div>' +
+          '</div>' +
+
+          '<div class="mt-5 rounded-2xl bg-slate-50 border border-slate-200 p-4">' +
+            '<div class="text-xs uppercase tracki
