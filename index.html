@@ -10,7 +10,7 @@
 <style>
 body { font-family: Arial, sans-serif; }
 
-/* splash animado */
+/* splash automático */
 #splash {
   animation: fadeOut 1s ease forwards;
   animation-delay: 2s;
@@ -39,8 +39,8 @@ D.C.R
 
 </div>
 
-<!-- APP (SIEMPRE VISIBLE) -->
-<div id="app">
+<!-- APP -->
+<div>
 
 <header class="bg-[#061b3a] text-white p-4 flex justify-between items-center">
   <div>
@@ -57,7 +57,7 @@ D.C.R
 
 <!-- BUSCADOR -->
 <section class="bg-white p-4 rounded-xl shadow">
-  <h2 class="font-bold text-lg">Catálogo</h2>
+  <h2 class="font-bold text-lg">Catálogo de servicios</h2>
 
   <input id="search" placeholder="Buscar..."
   class="w-full mt-2 p-3 border rounded-xl"
@@ -71,7 +71,6 @@ D.C.R
 
 <h2 class="font-bold text-lg">Métodos de pago</h2>
 
-<!-- PICHINCHA -->
 <div class="bg-yellow-400 p-4 rounded-xl text-black">
   <b>Banco Pichincha</b>
   <div>Cuenta: 2206498570</div>
@@ -79,7 +78,6 @@ D.C.R
   <div>Cédula: 1716552888</div>
 </div>
 
-<!-- GUAYAQUIL -->
 <div class="bg-pink-500 p-4 rounded-xl text-white">
   <b>Banco Guayaquil</b>
   <div>Cuenta: 20380913</div>
@@ -94,10 +92,20 @@ D.C.R
 
 <script>
 const services = [
-  {name:"Netflix 4K", plans:["30 días $7","60 días $13","90 días $17"]},
-  {name:"Disney+", plans:["30 días $8"]},
-  {name:"Spotify", plans:["1 mes $4"]},
+  {name:"Netflix 4K", plans:["30 días $7","60 días $13","90 días $17","1 perfil $5"]},
+  {name:"Disney+ Premium", plans:["30 días $8"]},
+  {name:"Spotify Premium", plans:["1 mes $4","3 meses $9"]},
   {name:"Prime Video", plans:["30 días $4"]},
+  {name:"YouTube Premium", plans:["1 mes $4","3 meses $9"]},
+  {name:"Flujo TV", plans:["1 mes $6.50","4 meses $20","9 meses $40","17 meses $70"]},
+  {name:"HBO Max", plans:["1 mes $4"]},
+  {name:"Crunchyroll", plans:["1 mes $4"]},
+  {name:"Paramount+", plans:["1 mes $3"]},
+  {name:"Canva Pro", plans:["1 mes $4","3 meses $10"]},
+  {name:"CapCut Pro", plans:["1 mes $4","3 meses $10"]},
+  {name:"ChatGPT Plus", plans:["1 mes $12"]},
+  {name:"IPTV Premium", plans:["1 mes $8","3 meses $20","6 meses $35","12 meses $60"]},
+  {name:"Servicio Técnico", plans:["Pantalla desde $25","Batería desde $15","Pin de carga $10","Mantenimiento $10"]}
 ];
 
 function render(){
@@ -110,7 +118,7 @@ function render(){
     html += `
     <div class="bg-slate-50 p-4 rounded-xl shadow">
       <b>${s.name}</b>
-      ${s.plans.map(p=>`<div>${p}</div>`).join("")}
+      ${s.plans.map(p=>`<div class="mt-1">${p}</div>`).join("")}
       <a href="https://wa.link/4x8ojw"
       class="block mt-3 bg-[#061b3a] text-white text-center p-2 rounded-xl">
       Solicitar
