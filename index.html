@@ -18,11 +18,15 @@
       to { opacity: 0; visibility: hidden; }
     }
     .card-hover {
-      transition: transform .2s ease, box-shadow .2s ease;
+      transition: transform .22s ease, box-shadow .22s ease;
     }
     .card-hover:hover {
       transform: translateY(-4px);
-      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.14);
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.14);
+    }
+    .glass {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
   </style>
 </head>
@@ -43,7 +47,7 @@
   </div>
 
   <!-- HEADER -->
-  <header class="sticky top-0 z-40 bg-[#061b3a] text-white shadow-lg">
+  <header class="sticky top-0 z-40 bg-[#061b3a]/95 glass text-white shadow-lg border-b border-white/10">
     <div class="p-4 flex justify-between items-center gap-3">
       <div class="flex items-center gap-3 min-w-0">
         <div class="w-14 h-14 rounded-2xl bg-white text-[#061b3a] flex items-center justify-center font-extrabold text-xl shrink-0">
@@ -56,10 +60,10 @@
       </div>
 
       <div class="flex gap-2 shrink-0">
-        <button onclick="copyPageLink()" class="bg-white/10 px-3 py-2 rounded-xl text-sm font-bold">
+        <button onclick="copyPageLink()" class="bg-white/10 px-3 py-2 rounded-xl text-sm font-bold hover:bg-white/20">
           Compartir
         </button>
-        <button onclick="scrollToSection('pagos')" class="bg-amber-400 text-black px-3 py-2 rounded-xl text-sm font-bold">
+        <button onclick="scrollToSection('pagos')" class="bg-amber-400 text-black px-3 py-2 rounded-xl text-sm font-bold hover:bg-amber-300">
           Pagar
         </button>
       </div>
@@ -70,6 +74,8 @@
   <section class="p-4">
     <div class="rounded-3xl bg-gradient-to-br from-[#061b3a] via-[#0c2c59] to-[#12407d] text-white p-6 shadow-xl relative overflow-hidden">
       <div class="absolute -right-8 -top-8 w-36 h-36 rounded-full bg-white/10"></div>
+      <div class="absolute right-6 bottom-[-30px] w-28 h-28 rounded-full bg-amber-400/15"></div>
+
       <div class="relative z-10">
         <span class="inline-block bg-white/10 border border-white/10 rounded-full px-4 py-2 text-xs font-bold tracking-wider uppercase">
           Activo · Atención rápida
@@ -79,15 +85,15 @@
           Streaming, cuentas premium y servicio técnico en un solo lugar
         </h2>
 
-        <p class="mt-4 text-slate-200 text-lg">
+        <p class="mt-4 text-slate-200 text-lg max-w-3xl">
           Revisa precios, busca tus servicios y confirma por WhatsApp con atención directa de D.C.R entretenimiento ec.
         </p>
 
         <div class="mt-6 flex flex-wrap gap-3">
-          <button onclick="scrollToSection('catalogo')" class="bg-amber-400 text-black px-5 py-3 rounded-2xl font-bold">
+          <button onclick="scrollToSection('catalogo')" class="bg-amber-400 text-black px-5 py-3 rounded-2xl font-bold hover:bg-amber-300">
             Ver catálogo
           </button>
-          <button onclick="scrollToSection('pagos')" class="bg-white/10 px-5 py-3 rounded-2xl font-bold">
+          <button onclick="scrollToSection('pagos')" class="bg-white/10 px-5 py-3 rounded-2xl font-bold hover:bg-white/15">
             Métodos de pago
           </button>
         </div>
@@ -118,7 +124,7 @@
     </div>
   </section>
 
-  <!-- CATÁLOGO -->
+  <!-- CATALOGO -->
   <section id="catalogo" class="p-4 space-y-4">
     <div>
       <h2 class="font-extrabold text-3xl">Catálogo de servicios</h2>
@@ -129,7 +135,7 @@
       <input
         id="search"
         placeholder="Buscar Netflix, Flujo TV, Disney+, Spotify..."
-        class="w-full p-4 border rounded-2xl"
+        class="w-full p-4 border rounded-2xl outline-none focus:ring-2 focus:ring-amber-400"
         oninput="render()"
       >
     </div>
@@ -145,21 +151,34 @@
       <div class="bg-yellow-400 p-5 rounded-3xl text-black shadow">
         <div class="text-2xl mb-2">💳</div>
         <b class="text-2xl">Banco Pichincha</b>
-        <div class="mt-4 space-y-1 text-lg">
-          <div>Cuenta: 2206498570</div>
-          <div>Nombre: Darwin Cañar</div>
-          <div>Cédula: 1716552888</div>
-          <div>Tipo: Ahorros</div>
+        <div class="mt-4 space-y-2 text-lg">
+          <div><span class="font-bold">Cuenta:</span> 2206498570</div>
+          <div><span class="font-bold">Nombre:</span> Darwin Cañar</div>
+          <div><span class="font-bold">Cédula:</span> 1716552888</div>
+          <div><span class="font-bold">Tipo:</span> Ahorros</div>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <button onclick="copyText('2206498570','Cuenta Banco Pichincha copiada')" class="bg-black/15 px-4 py-2 rounded-xl font-bold">
+            Copiar cuenta
+          </button>
+          <button onclick="copyText('1716552888','Cédula copiada')" class="bg-black/15 px-4 py-2 rounded-xl font-bold">
+            Copiar cédula
+          </button>
         </div>
       </div>
 
       <div class="bg-pink-500 text-white p-5 rounded-3xl shadow">
         <div class="text-2xl mb-2">💳</div>
         <b class="text-2xl">Banco Guayaquil</b>
-        <div class="mt-4 space-y-1 text-lg">
-          <div>Cuenta: 20380913</div>
-          <div>Nombre: Darwin Cañar</div>
-          <div>Tipo: Ahorros</div>
+        <div class="mt-4 space-y-2 text-lg">
+          <div><span class="font-bold">Cuenta:</span> 20380913</div>
+          <div><span class="font-bold">Nombre:</span> Darwin Cañar</div>
+          <div><span class="font-bold">Tipo:</span> Ahorros</div>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <button onclick="copyText('20380913','Cuenta Banco Guayaquil copiada')" class="bg-white/20 px-4 py-2 rounded-xl font-bold">
+            Copiar cuenta
+          </button>
         </div>
       </div>
     </div>
@@ -169,7 +188,7 @@
       <p class="text-slate-300 mt-2">
         Haz tu transferencia y envía el comprobante para activar tu servicio.
       </p>
-      <a href="https://wa.link/4x8ojw" class="inline-block mt-4 bg-green-500 px-5 py-3 rounded-2xl font-bold">
+      <a href="https://wa.link/4x8ojw" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 bg-green-500 px-5 py-3 rounded-2xl font-bold hover:bg-green-600">
         Abrir WhatsApp
       </a>
     </div>
@@ -192,10 +211,10 @@
       </p>
 
       <div class="mt-5 flex flex-col sm:flex-row gap-3 justify-center">
-        <button onclick="copyPageLink()" class="bg-amber-400 px-5 py-3 rounded-2xl font-bold text-black">
+        <button onclick="copyPageLink()" class="bg-amber-400 px-5 py-3 rounded-2xl font-bold text-black hover:bg-amber-300">
           Copiar enlace
         </button>
-        <a href="https://wa.link/4x8ojw" class="bg-green-500 px-5 py-3 rounded-2xl font-bold text-white">
+        <a href="https://wa.link/4x8ojw" target="_blank" rel="noopener noreferrer" class="bg-green-500 px-5 py-3 rounded-2xl font-bold text-white hover:bg-green-600">
           Enviar comprobante
         </a>
       </div>
@@ -211,19 +230,22 @@
     <p class="mt-2 text-slate-500">Tu catálogo premium online</p>
   </footer>
 
-  <!-- BOTÓN WHATSAPP -->
-  <a href="https://wa.link/4x8ojw" class="fixed bottom-5 right-5 bg-green-500 text-white px-5 py-4 rounded-full shadow-2xl font-bold z-40">
+  <!-- BOTON WHATSAPP -->
+  <a href="https://wa.link/4x8ojw" target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 bg-green-500 text-white px-5 py-4 rounded-full shadow-2xl font-bold z-40 hover:bg-green-600">
     WhatsApp
   </a>
 
   <!-- TOAST -->
-  <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 opacity-0 transition-all duration-300 bg-slate-900 text-white text-sm font-bold px-5 py-3 rounded-full shadow-2xl">
+  <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 opacity-0 transition-all duration-300 bg-slate-900 text-white text-sm font-bold px-5 py-3 rounded-full shadow-2xl z-50">
     Copiado correctamente
   </div>
 
   <script>
+    const WHATSAPP_NUMBER = "593000000000"; // si quieres, aquí luego cambias por tu número real internacional
+    const WHATSAPP_LINK = "https://wa.link/4x8ojw";
+
     function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
     }
 
     function showToast(message) {
@@ -235,43 +257,194 @@
       }, 1800);
     }
 
-    function fallbackCopy(text) {
+    function fallbackCopy(text, message) {
       const area = document.createElement("textarea");
       area.value = text;
       document.body.appendChild(area);
       area.select();
       document.execCommand("copy");
       document.body.removeChild(area);
-      showToast("Copiado correctamente");
+      showToast(message || "Copiado correctamente");
+    }
+
+    function copyText(text, message) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text)
+          .then(() => showToast(message || "Copiado correctamente"))
+          .catch(() => fallbackCopy(text, message));
+      } else {
+        fallbackCopy(text, message);
+      }
     }
 
     function copyPageLink() {
-      const text = window.location.href;
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).then(() => {
-          showToast("Enlace copiado");
-        }).catch(() => fallbackCopy(text));
+      copyText(window.location.href, "Enlace copiado");
+    }
+
+    function openWhatsApp(product, plan) {
+      const text = "Hola, quiero solicitar " + product + " - " + plan + " en D.C.R entretenimiento ec.";
+      const url = WHATSAPP_LINK.includes("wa.link")
+        ? WHATSAPP_LINK
+        : "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
+      if (WHATSAPP_LINK.includes("wa.link")) {
+        window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank");
       } else {
-        fallbackCopy(text);
+        window.open(url, "_blank");
       }
     }
 
     const services = [
-      { name:"Netflix 4K", emoji:"🎬", plans:["Completa 30 días - $7","Completa 60 días - $13","Completa 90 días - $17","1 perfil 80 días - $5"] },
-      { name:"Disney+ Premium", emoji:"⭐", plans:["Completa 30 días - $8"] },
-      { name:"Spotify Premium", emoji:"🎵", plans:["1 mes - $4","3 meses - $9"] },
-      { name:"Prime Video", emoji:"📺", plans:["30 días - $4"] },
-      { name:"YouTube Premium", emoji:"▶️", plans:["1 mes - $4","3 meses - $9"] },
-      { name:"Flujo TV", emoji:"📡", plans:["1 mes - $6.50","4 meses - $20","9 meses - $40","17 meses - $70"] },
-      { name:"HBO Max", emoji:"🎞️", plans:["1 mes - $4"] },
-      { name:"Crunchyroll", emoji:"🍥", plans:["1 mes - $4"] },
-      { name:"Paramount+", emoji:"🎥", plans:["1 mes - $3"] },
-      { name:"Canva Pro", emoji:"🎨", plans:["1 mes - $4","3 meses - $10"] },
-      { name:"CapCut Pro", emoji:"✂️", plans:["1 mes - $4","3 meses - $10"] },
-      { name:"ChatGPT Plus", emoji:"🤖", plans:["1 mes - $12"] },
-      { name:"IPTV Premium", emoji:"📺", plans:["1 mes - $8","3 meses - $20","6 meses - $35","12 meses - $60"] },
-      { name:"Servicio Técnico", emoji:"📱", plans:["Pantalla desde - $25","Batería desde - $15","Pin de carga - $10","Mantenimiento - $10"] }
+      {
+        name: "Netflix 4K",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+        logoBg: "bg-black",
+        plans: [
+          "Completa 30 días - $7",
+          "Completa 60 días - $13",
+          "Completa 90 días - $17",
+          "1 perfil 80 días - $5"
+        ]
+      },
+      {
+        name: "Disney+ Premium",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg",
+        logoBg: "bg-[#0b1f4d]",
+        plans: [
+          "Completa 30 días - $8"
+        ]
+      },
+      {
+        name: "Spotify Premium",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg",
+        logoBg: "bg-black",
+        plans: [
+          "1 mes - $4",
+          "3 meses - $9"
+        ]
+      },
+      {
+        name: "Prime Video",
+        emoji: "📺",
+        color: "from-cyan-500 to-cyan-700",
+        plans: [
+          "30 días - $4"
+        ]
+      },
+      {
+        name: "YouTube Premium",
+        emoji: "▶️",
+        color: "from-red-500 to-red-700",
+        plans: [
+          "1 mes - $4",
+          "3 meses - $9"
+        ]
+      },
+      {
+        name: "Flujo TV",
+        emoji: "📡",
+        color: "from-blue-500 to-blue-700",
+        plans: [
+          "1 mes - $6.50",
+          "4 meses - $20",
+          "9 meses - $40",
+          "17 meses - $70"
+        ]
+      },
+      {
+        name: "HBO Max",
+        emoji: "🎞️",
+        color: "from-purple-500 to-purple-700",
+        plans: [
+          "1 mes - $4"
+        ]
+      },
+      {
+        name: "Crunchyroll",
+        emoji: "🍥",
+        color: "from-orange-500 to-orange-700",
+        plans: [
+          "1 mes - $4"
+        ]
+      },
+      {
+        name: "Paramount+",
+        emoji: "🎥",
+        color: "from-sky-500 to-sky-700",
+        plans: [
+          "1 mes - $3"
+        ]
+      },
+      {
+        name: "Canva Pro",
+        emoji: "🎨",
+        color: "from-teal-500 to-cyan-700",
+        plans: [
+          "1 mes - $4",
+          "3 meses - $10"
+        ]
+      },
+      {
+        name: "CapCut Pro",
+        emoji: "✂️",
+        color: "from-slate-700 to-black",
+        plans: [
+          "1 mes - $4",
+          "3 meses - $10"
+        ]
+      },
+      {
+        name: "ChatGPT Plus",
+        emoji: "🤖",
+        color: "from-emerald-500 to-emerald-700",
+        plans: [
+          "1 mes - $12"
+        ]
+      },
+      {
+        name: "IPTV Premium",
+        emoji: "📺",
+        color: "from-fuchsia-500 to-violet-700",
+        plans: [
+          "1 mes - $8",
+          "3 meses - $20",
+          "6 meses - $35",
+          "12 meses - $60"
+        ]
+      },
+      {
+        name: "Servicio Técnico",
+        emoji: "📱",
+        color: "from-slate-700 to-slate-900",
+        plans: [
+          "Pantalla desde - $25",
+          "Batería desde - $15",
+          "Pin de carga - $10",
+          "Mantenimiento - $10"
+        ]
+      }
     ];
+
+    function serviceHeader(service) {
+      if (service.logo) {
+        return `
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-14 h-14 rounded-2xl ${service.logoBg} flex items-center justify-center p-2 shadow">
+              <img src="${service.logo}" alt="${service.name}" class="max-w-full max-h-full object-contain" referrerpolicy="no-referrer">
+            </div>
+            <b class="text-2xl">${service.name}</b>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} text-white flex items-center justify-center text-3xl shadow">
+            ${service.emoji}
+          </div>
+          <b class="text-2xl">${service.name}</b>
+        </div>
+      `;
+    }
 
     function render() {
       let search = document.getElementById("search").value.toLowerCase();
@@ -285,17 +458,26 @@
         .forEach(s => {
           html += `
             <div class="bg-white p-5 rounded-3xl shadow card-hover">
-              <div class="flex items-center gap-3 mb-3">
-                <div class="text-3xl">${s.emoji}</div>
-                <b class="text-2xl">${s.name}</b>
-              </div>
+              ${serviceHeader(s)}
               <div class="space-y-2">
-                ${s.plans.map(p => `<div class="bg-slate-50 border rounded-2xl px-4 py-3">${p}</div>`).join("")}
+                ${s.plans.map(p => `
+                  <div class="bg-slate-50 border rounded-2xl px-4 py-3 flex items-center justify-between gap-3">
+                    <span>${p}</span>
+                    <button
+                      onclick="openWhatsApp('${s.name.replace(/'/g, "\\'")}', '${p.replace(/'/g, "\\'")}')"
+                      class="bg-[#061b3a] text-white px-3 py-2 rounded-xl text-sm font-bold hover:bg-[#0c2c59]"
+                    >
+                      Pedir
+                    </button>
+                  </div>
+                `).join("")}
               </div>
-              <a href="https://wa.link/4x8ojw"
-                 class="block mt-4 bg-[#061b3a] text-white text-center p-3 rounded-2xl font-bold">
-                Solicitar
-              </a>
+              <button
+                onclick="openWhatsApp('${s.name.replace(/'/g, "\\'")}', 'Quiero información general')"
+                class="block w-full mt-4 bg-green-500 text-white text-center p-3 rounded-2xl font-bold hover:bg-green-600"
+              >
+                Consultar por WhatsApp
+              </button>
             </div>
           `;
         });
@@ -311,6 +493,5 @@
     render();
     loadQr();
   </script>
-
 </body>
 </html>
