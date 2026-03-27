@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>D.C.R entretenimiento ec</title>
   <meta name="description" content="Catálogo premium de streaming, cuentas y servicio técnico en Ecuador.">
   <meta name="theme-color" content="#061b3a">
-  <meta property="og:title" content="D.C.R entretenimiento ec">
-  <meta property="og:description" content="Catálogo premium de streaming, cuentas y servicio técnico en Ecuador.">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="es_EC">
   <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: Arial, sans-serif; }
@@ -96,10 +91,10 @@
       </div>
 
       <div class="flex gap-2 shrink-0">
-        <button id="shareBtn" type="button" class="btn-main bg-white/10 px-3 py-2 rounded-xl text-sm font-bold hover:bg-white/20">
+        <button onclick="copyPageLink()" class="btn-main bg-white/10 px-3 py-2 rounded-xl text-sm font-bold hover:bg-white/20">
           Compartir
         </button>
-        <button id="payBtn" type="button" class="btn-main bg-amber-400 text-black px-3 py-2 rounded-xl text-sm font-bold hover:bg-amber-300">
+        <button onclick="scrollToSection('pagos')" class="btn-main bg-amber-400 text-black px-3 py-2 rounded-xl text-sm font-bold hover:bg-amber-300">
           Pagar
         </button>
       </div>
@@ -127,10 +122,10 @@
           </p>
 
           <div class="mt-6 flex flex-wrap gap-3">
-            <button id="catalogBtn" type="button" class="btn-main bg-amber-400 text-black px-5 py-3 rounded-2xl font-bold hover:bg-amber-300">
+            <button onclick="scrollToSection('catalogo')" class="btn-main bg-amber-400 text-black px-5 py-3 rounded-2xl font-bold hover:bg-amber-300">
               Ver catálogo
             </button>
-            <button id="paymentsBtn" type="button" class="btn-main bg-white/10 px-5 py-3 rounded-2xl font-bold hover:bg-white/15">
+            <button onclick="scrollToSection('pagos')" class="btn-main bg-white/10 px-5 py-3 rounded-2xl font-bold hover:bg-white/15">
               Métodos de pago
             </button>
           </div>
@@ -224,10 +219,10 @@
           <div><span class="font-bold">Tipo:</span> Ahorros</div>
         </div>
         <div class="mt-4 flex flex-wrap gap-2">
-          <button class="btn-main copy-btn bg-black/15 px-4 py-2 rounded-xl font-bold" type="button" data-copy="2206498570" data-message="Cuenta Banco Pichincha copiada">
+          <button onclick="copyText('2206498570','Cuenta Banco Pichincha copiada')" class="btn-main bg-black/15 px-4 py-2 rounded-xl font-bold">
             Copiar cuenta
           </button>
-          <button class="btn-main copy-btn bg-black/15 px-4 py-2 rounded-xl font-bold" type="button" data-copy="1716552888" data-message="Cédula copiada">
+          <button onclick="copyText('1716552888','Cédula copiada')" class="btn-main bg-black/15 px-4 py-2 rounded-xl font-bold">
             Copiar cédula
           </button>
         </div>
@@ -242,7 +237,7 @@
           <div><span class="font-bold">Tipo:</span> Ahorros</div>
         </div>
         <div class="mt-4 flex flex-wrap gap-2">
-          <button class="btn-main copy-btn bg-white/20 px-4 py-2 rounded-xl font-bold" type="button" data-copy="20380913" data-message="Cuenta Banco Guayaquil copiada">
+          <button onclick="copyText('20380913','Cuenta Banco Guayaquil copiada')" class="btn-main bg-white/20 px-4 py-2 rounded-xl font-bold">
             Copiar cuenta
           </button>
         </div>
@@ -254,7 +249,7 @@
       <p class="text-slate-300 mt-2">
         Haz tu transferencia y envía el comprobante para activar tu servicio.
       </p>
-      <a id="paymentWhatsappLink" href="#" target="_blank" rel="noopener noreferrer" class="btn-main inline-block mt-4 bg-green-500 px-5 py-3 rounded-2xl font-bold hover:bg-green-600">
+      <a href="https://wa.me/593992064254" target="_blank" rel="noopener noreferrer" class="btn-main inline-block mt-4 bg-green-500 px-5 py-3 rounded-2xl font-bold hover:bg-green-600">
         Abrir WhatsApp
       </a>
     </div>
@@ -281,10 +276,10 @@
       </p>
 
       <div class="mt-5 flex flex-col sm:flex-row gap-3 justify-center">
-        <button id="copyLinkBtn" type="button" class="btn-main bg-amber-400 px-5 py-3 rounded-2xl font-bold text-black hover:bg-amber-300">
+        <button onclick="copyPageLink()" class="btn-main bg-amber-400 px-5 py-3 rounded-2xl font-bold text-black hover:bg-amber-300">
           Copiar enlace
         </button>
-        <a id="receiptWhatsappLink" href="#" target="_blank" rel="noopener noreferrer" class="btn-main bg-green-500 px-5 py-3 rounded-2xl font-bold text-white hover:bg-green-600">
+        <a href="https://wa.me/593992064254" target="_blank" rel="noopener noreferrer" class="btn-main bg-green-500 px-5 py-3 rounded-2xl font-bold text-white hover:bg-green-600">
           Enviar comprobante
         </a>
       </div>
@@ -301,12 +296,12 @@
   </footer>
 
   <!-- BOTON WHATSAPP -->
-  <a id="floatingWhatsapp" href="#" target="_blank" rel="noopener noreferrer" class="btn-main fixed bottom-5 right-5 bg-green-500 text-white px-5 py-4 rounded-full shadow-2xl font-bold z-40 hover:bg-green-600">
+  <a href="https://wa.me/593992064254" target="_blank" rel="noopener noreferrer" class="btn-main fixed bottom-5 right-5 bg-green-500 text-white px-5 py-4 rounded-full shadow-2xl font-bold z-40 hover:bg-green-600">
     WhatsApp
   </a>
 
   <!-- BOTON SUBIR -->
-  <button id="backTopBtn" type="button" class="hidden fixed bottom-5 left-5 bg-white text-slate-900 px-4 py-3 rounded-full shadow-2xl font-bold z-40 border hover:bg-slate-50">
+  <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" id="backTopBtn" class="hidden fixed bottom-5 left-5 bg-white text-slate-900 px-4 py-3 rounded-full shadow-2xl font-bold z-40 border hover:bg-slate-50">
     ↑
   </button>
 
@@ -316,8 +311,9 @@
   </div>
 
   <script>
-    const WHATSAPP_NUMBER = "593992064254";
-    const SERVICES = [
+    var WHATSAPP_NUMBER = "593992064254";
+
+    var services = [
       {
         name: "Netflix 4K",
         logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
@@ -407,28 +403,24 @@
       }
     ];
 
-    function getById(id) {
-      return document.getElementById(id);
-    }
-
     function scrollToSection(id) {
-      const section = getById(id);
-      if (section) section.scrollIntoView({ behavior: "smooth" });
+      var el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
     }
 
-    function showToast(message = "Copiado correctamente") {
-      const toast = getById("toast");
-      toast.textContent = message;
+    function showToast(message) {
+      var toast = document.getElementById("toast");
+      toast.textContent = message || "Copiado correctamente";
       toast.classList.remove("opacity-0");
 
-      clearTimeout(window.__toastTimer);
-      window.__toastTimer = setTimeout(() => {
+      clearTimeout(window.toastTimeout);
+      window.toastTimeout = setTimeout(function() {
         toast.classList.add("opacity-0");
       }, 1800);
     }
 
     function fallbackCopy(text, message) {
-      const area = document.createElement("textarea");
+      var area = document.createElement("textarea");
       area.value = text;
       area.style.position = "absolute";
       area.style.left = "-9999px";
@@ -436,16 +428,20 @@
       area.select();
       document.execCommand("copy");
       document.body.removeChild(area);
-      showToast(message);
+      showToast(message || "Copiado correctamente");
     }
 
-    function copyText(text, message = "Copiado correctamente") {
+    function copyText(text, message) {
       if (!text) return;
 
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text)
-          .then(() => showToast(message))
-          .catch(() => fallbackCopy(text, message));
+          .then(function() {
+            showToast(message || "Copiado correctamente");
+          })
+          .catch(function() {
+            fallbackCopy(text, message);
+          });
       } else {
         fallbackCopy(text, message);
       }
@@ -453,14 +449,6 @@
 
     function copyPageLink() {
       copyText(window.location.href, "Enlace copiado");
-    }
-
-    function getWhatsAppUrl(product = "", plan = "") {
-      const text = product && plan
-        ? `Hola, vi tu catálogo y quiero pedir ${product} - ${plan}. ¿Está disponible?`
-        : "Hola, quiero información sobre sus servicios en D.C.R entretenimiento ec.";
-
-      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
     }
 
     function escapeHtml(value) {
@@ -472,63 +460,75 @@
         .replace(/'/g, "&#39;");
     }
 
+    function jsString(value) {
+      return JSON.stringify(String(value));
+    }
+
+    function openWhatsApp(product, plan) {
+      var text = "Hola, vi tu catálogo y quiero pedir " + product + " - " + plan + ". ¿Está disponible?";
+      var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
+      window.open(url, "_blank");
+    }
+
     function getHeader(service) {
-      const badge = escapeHtml(service.badge || "Premium");
+      var badge = service.badge || "Premium";
 
       if (service.logo) {
-        return `
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-14 h-14 rounded-2xl ${service.logoBg} flex items-center justify-center p-2 shadow">
-              <img
-                src="${escapeHtml(service.logo)}"
-                alt="${escapeHtml(service.name)}"
-                class="max-w-full max-h-full object-contain"
-                referrerpolicy="no-referrer"
-                loading="lazy"
-              >
-            </div>
-            <div class="min-w-0 flex-1">
-              <b class="text-2xl line-clamp-1 block">${escapeHtml(service.name)}</b>
-            </div>
-            <span class="shrink-0 text-xs font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">${badge}</span>
-          </div>
-        `;
+        return ''
+          + '<div class="flex items-center gap-3 mb-3">'
+          + '  <div class="w-14 h-14 rounded-2xl ' + service.logoBg + ' flex items-center justify-center p-2 shadow">'
+          + '    <img src="' + escapeHtml(service.logo) + '" alt="' + escapeHtml(service.name) + '" class="max-w-full max-h-full object-contain" referrerpolicy="no-referrer">'
+          + '  </div>'
+          + '  <div class="min-w-0 flex-1">'
+          + '    <b class="text-2xl line-clamp-1 block">' + escapeHtml(service.name) + '</b>'
+          + '  </div>'
+          + '  <span class="shrink-0 text-xs font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">' + escapeHtml(badge) + '</span>'
+          + '</div>';
       }
 
-      return `
-        <div class="flex items-center gap-3 mb-3">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} text-white flex items-center justify-center text-3xl shadow">
-            ${escapeHtml(service.emoji)}
-          </div>
-          <div class="min-w-0 flex-1">
-            <b class="text-2xl line-clamp-1 block">${escapeHtml(service.name)}</b>
-          </div>
-          <span class="shrink-0 text-xs font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">${badge}</span>
-        </div>
-      `;
+      return ''
+        + '<div class="flex items-center gap-3 mb-3">'
+        + '  <div class="w-14 h-14 rounded-2xl bg-gradient-to-br ' + service.color + ' text-white flex items-center justify-center text-3xl shadow">'
+        +       escapeHtml(service.emoji)
+        + '  </div>'
+        + '  <div class="min-w-0 flex-1">'
+        + '    <b class="text-2xl line-clamp-1 block">' + escapeHtml(service.name) + '</b>'
+        + '  </div>'
+        + '  <span class="shrink-0 text-xs font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">' + escapeHtml(badge) + '</span>'
+        + '</div>';
     }
 
-    function createPlanRow(serviceName, plan) {
-      return `
-        <div class="bg-white/80 border rounded-2xl px-4 py-3 flex items-center justify-between gap-3">
-          <span>${escapeHtml(plan)}</span>
-          <button
-            type="button"
-            class="btn-main bg-[#061b3a] text-white px-3 py-2 rounded-xl text-sm font-bold hover:bg-[#0c2c59] request-btn"
-            data-service="${escapeHtml(serviceName)}"
-            data-plan="${escapeHtml(plan)}"
-          >
-            Pedir
-          </button>
-        </div>
-      `;
-    }
+    function render() {
+      try {
+        var searchInput = document.getElementById("search");
+        var catalog = document.getElementById("catalog");
+        var serviceCount = document.getElementById("serviceCount");
 
-    function renderCatalog() {
-      const searchInput = getById("search");
-      const catalog = getById("catalog");
-      const serviceCount = getById("serviceCount");
+        if (!searchInput || !catalog || !serviceCount) return;
 
-      const query = (searchInput.value || "").toLowerCase().trim();
+        var search = String(searchInput.value || "").toLowerCase().trim();
+        var html = "";
+        var filtered = [];
 
-      const f
+        for (var i = 0; i < services.length; i++) {
+          var s = services[i];
+          var matchName = s.name.toLowerCase().indexOf(search) !== -1;
+          var matchPlan = false;
+
+          for (var j = 0; j < s.plans.length; j++) {
+            if (s.plans[j].toLowerCase().indexOf(search) !== -1) {
+              matchPlan = true;
+              break;
+            }
+          }
+
+          if (search === "" || matchName || matchPlan) {
+            filtered.push(s);
+          }
+        }
+
+        serviceCount.textContent = filtered.length;
+
+        for (var k = 0; k < filtered.length; k++) {
+          var service = filtered[k];
+          var plans
