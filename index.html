@@ -202,7 +202,6 @@
         id="search"
         placeholder="Buscar Netflix, Flujo TV, Disney+, Spotify, servicio técnico..."
         class="w-full p-4 border rounded-2xl outline-none focus:ring-2 focus:ring-amber-400"
-        oninput="render()"
       >
     </div>
 
@@ -318,53 +317,6 @@
   <script>
     const WHATSAPP_NUMBER = "593992064254";
 
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-    }
-
-    function showToast(message) {
-      const toast = document.getElementById("toast");
-      toast.textContent = message || "Copiado correctamente";
-      toast.classList.remove("opacity-0");
-
-      clearTimeout(window.toastTimeout);
-      window.toastTimeout = setTimeout(() => {
-        toast.classList.add("opacity-0");
-      }, 1800);
-    }
-
-    function fallbackCopy(text, message) {
-      const area = document.createElement("textarea");
-      area.value = text;
-      area.style.position = "absolute";
-      area.style.left = "-9999px";
-      document.body.appendChild(area);
-      area.select();
-      document.execCommand("copy");
-      document.body.removeChild(area);
-      showToast(message || "Copiado correctamente");
-    }
-
-    function copyText(text, message) {
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text)
-          .then(() => showToast(message || "Copiado correctamente"))
-          .catch(() => fallbackCopy(text, message));
-      } else {
-        fallbackCopy(text, message);
-      }
-    }
-
-    function copyPageLink() {
-      copyText(window.location.href, "Enlace copiado");
-    }
-
-    function openWhatsApp(product, plan) {
-      const text = `Hola, vi tu catálogo y quiero pedir ${product} - ${plan}. ¿Está disponible?`;
-      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-      window.open(url, "_blank");
-    }
-
     const services = [
       {
         name: "Netflix 4K",
@@ -479,17 +431,80 @@
       }
     ];
 
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message || "Copiado correctamente";
+      toast.classList.remove("opacity-0");
+
+      clearTimeout(window.toastTimeout);
+      window.toastTimeout = setTimeout(() => {
+        toast.classList.add("opacity-0");
+      }, 1800);
+    }
+
+    function fallbackCopy(text, message) {
+      const area = document.createElement("textarea");
+      area.value = text;
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      document.execCommand("copy");
+      document.body.removeChild(area);
+      showToast(message || "Copiado correctamente");
+    }
+
+    function copyText(text, message) {
+      if (!text) return;
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text)
+          .then(() => showToast(message || "Copiado correctamente"))
+          .catch(() => fallbackCopy(text, message));
+      } else {
+        fallbackCopy(text, message);
+      }
+    }
+
+    function copyPageLink() {
+      copyText(window.location.href, "Enlace copiado");
+    }
+
+    function openWhatsApp(product, plan) {
+      const text = `Hola, vi tu catálogo y quiero pedir ${product} - ${plan}. ¿Está disponible?`;
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
+    }
+
+    function safeText(text) {
+      return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
     function getHeader(service) {
+      const badge = service.badge || "Premium";
+
       if (service.logo) {
         return `
           <div class="flex items-center gap-3 mb-3">
             <div class="w-14 h-14 rounded-2xl ${service.logoBg} flex items-center justify-center p-2 shadow">
-              <img src="${service.logo}" alt="${service.name}" class="max-w-full max-h-full object-contain" referrerpolicy="no-referrer">
+              <img src="${safeText(service.logo)}" alt="${safeText(service.name)}" class="max-w-full max-h-full object-contain" referrerpolicy="no-referrer">
             </div>
             <div class="min-w-0 flex-1">
-              <b class="text-2xl line-clamp-1 block">${service.name}</b>
+              <b class="text-2xl line-clamp-1 block">${safeText(service.name)}</b>
             </div>
-            <span class="shrink-0 text-xs font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">${service.badge || "Premium"}</span>
+            <span class="shrink-0 text-xs font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">${safeText(badge)}</span>
           </div>
         `;
       }
@@ -497,41 +512,38 @@
       return `
         <div class="flex items-center gap-3 mb-3">
           <div class="w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} text-white flex items-center justify-center text-3xl shadow">
-            ${service.emoji}
+            ${safeText(service.emoji)}
           </div>
           <div class="min-w-0 flex-1">
-            <b class="text-2xl line-clamp-1 block">${service.name}</b>
+            <b class="text-2xl line-clamp-1 block">${safeText(service.name)}</b>
           </div>
-          <span class="shrink-0 text-xs font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">${service.badge || "Premium"}</span>
+          <span class="shrink-0 text-xs font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">${safeText(badge)}</span>
         </div>
       `;
     }
 
     function render() {
-      const search = document.getElementById("search").value.toLowerCase().trim();
+      const searchInput = document.getElementById("search");
+      const catalog = document.getElementById("catalog");
+      const serviceCount = document.getElementById("serviceCount");
+
+      if (!searchInput || !catalog || !serviceCount) return;
+
+      const search = searchInput.value.toLowerCase().trim();
+
+      const filtered = services.filter(service => {
+        return (
+          service.name.toLowerCase().includes(search) ||
+          service.plans.some(plan => plan.toLowerCase().includes(search))
+        );
+      });
+
+      serviceCount.textContent = filtered.length;
+
       let html = "";
 
-      const filtered = services.filter(service =>
-        service.name.toLowerCase().includes(search) ||
-        service.plans.some(plan => plan.toLowerCase().includes(search))
-      );
-
-      document.getElementById("serviceCount").textContent = filtered.length;
-
       filtered.forEach(service => {
+        const firstPlan = service.plans.length ? service.plans[0] : "Consultar";
+
         html += `
-          <div class="premium-card p-5 rounded-3xl shadow card-hover border border-slate-200">
-            ${getHeader(service)}
-
-            <div class="mb-4">
-              <div class="text-sm text-slate-500">Disponible desde</div>
-              <div class="text-xl font-extrabold text-[#061b3a]">${service.plans[0]}</div>
-            </div>
-
-            <div class="space-y-2">
-              ${service.plans.map(plan => `
-                <div class="bg-white/80 border rounded-2xl px-4 py-3 flex items-center justify-between gap-3">
-                  <span>${plan}</span>
-                  <button
-                    onclick="openWhatsApp('${service.name.replace(/'/g, "\\'")}', '${plan.replace(/'/g, "\\'")}')"
-             
+          <div class="premium-card p-5 rounded-3x
