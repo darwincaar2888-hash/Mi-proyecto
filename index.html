@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>D.C.R entretenimiento ec</title>
-  <meta name="description" content="Catálogo premium de streaming, cuentas y servicio técnico en Ecuador.">
-  <meta name="theme-color" content="#061b3a">
+  <meta
+    name="description"
+    content="Catálogo premium de streaming, cuentas y servicio técnico en Ecuador."
+  />
+  <meta name="theme-color" content="#061b3a" />
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: Arial, sans-serif; }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
 
     #splash {
       animation: fadeOut 1s ease forwards;
-      animation-delay: 1.2s;
+      animation-delay: 1.6s;
     }
 
     @keyframes fadeOut {
@@ -24,18 +33,18 @@
       }
     }
 
+    .glass {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
     .card-hover {
-      transition: transform .22s ease, box-shadow .22s ease;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
     }
 
     .card-hover:hover {
       transform: translateY(-4px);
       box-shadow: 0 18px 35px rgba(15, 23, 42, 0.14);
-    }
-
-    .glass {
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
     }
 
     .line-clamp-1 {
@@ -44,48 +53,17 @@
       white-space: nowrap;
     }
 
-    .media-banner {
-      position: relative;
-      overflow: hidden;
-      border-radius: 1rem;
-      min-height: 145px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-    }
-
-    .media-banner::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(2,6,23,.24), rgba(2,6,23,.06));
-    }
-
-    .media-logo {
-      position: relative;
-      z-index: 1;
-      max-width: 72%;
-      max-height: 62px;
-      object-fit: contain;
-      filter: drop-shadow(0 10px 16px rgba(0,0,0,.25));
-    }
-
-    .media-emoji {
-      position: relative;
-      z-index: 1;
-      font-size: 3rem;
-      line-height: 1;
-      filter: drop-shadow(0 10px 16px rgba(0,0,0,.22));
-    }
-
     .btn-main {
-      transition: transform .2s ease, box-shadow .2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .btn-main:hover {
       transform: translateY(-1px);
       box-shadow: 0 10px 18px rgba(15, 23, 42, 0.12);
+    }
+
+    .service-icon {
+      box-shadow: 0 10px 16px rgba(0, 0, 0, 0.18);
     }
   </style>
 </head>
@@ -119,10 +97,18 @@
       </div>
 
       <div class="flex gap-2 shrink-0">
-        <button type="button" onclick="copyPageLink()" class="btn-main bg-white/10 px-3 py-2 rounded-xl text-sm font-bold hover:bg-white/20">
+        <button
+          type="button"
+          onclick="copyPageLink()"
+          class="btn-main bg-white/10 px-3 py-2 rounded-xl text-sm font-bold hover:bg-white/20"
+        >
           Compartir
         </button>
-        <button type="button" onclick="scrollToSection('pagos')" class="btn-main bg-amber-400 text-black px-3 py-2 rounded-xl text-sm font-bold hover:bg-amber-300">
+        <button
+          type="button"
+          onclick="scrollToSection('pagos')"
+          class="btn-main bg-amber-400 text-black px-3 py-2 rounded-xl text-sm font-bold hover:bg-amber-300"
+        >
           Pagar
         </button>
       </div>
@@ -150,10 +136,18 @@
           </p>
 
           <div class="mt-6 flex flex-wrap gap-3">
-            <button type="button" onclick="scrollToSection('catalogo')" class="btn-main bg-amber-400 text-black px-5 py-3 rounded-2xl font-bold hover:bg-amber-300">
+            <button
+              type="button"
+              onclick="scrollToSection('catalogo')"
+              class="btn-main bg-amber-400 text-black px-5 py-3 rounded-2xl font-bold hover:bg-amber-300"
+            >
               Ver catálogo
             </button>
-            <button type="button" onclick="scrollToSection('pagos')" class="btn-main bg-white/10 px-5 py-3 rounded-2xl font-bold hover:bg-white/15">
+            <button
+              type="button"
+              onclick="scrollToSection('pagos')"
+              class="btn-main bg-white/10 px-5 py-3 rounded-2xl font-bold hover:bg-white/15"
+            >
               Métodos de pago
             </button>
           </div>
@@ -213,9 +207,10 @@
         <h2 class="font-extrabold text-3xl">Catálogo de servicios</h2>
         <p class="text-slate-500">Busca y compara tus planes</p>
       </div>
-      <div class="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-2xl px-4 py-3 shadow text-sm text-slate-600">
+
+      <div class="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-2xl px-4 py-3 shadow">
         <span class="font-bold text-slate-900" id="serviceCount">0</span>
-        <span>servicios visibles</span>
+        <span class="text-slate-500">servicios visibles</span>
       </div>
     </div>
 
@@ -226,7 +221,7 @@
         placeholder="Buscar Netflix, Flujo TV, Disney+, Spotify, servicio técnico..."
         class="w-full p-4 border rounded-2xl outline-none focus:ring-2 focus:ring-amber-400"
         autocomplete="off"
-      >
+      />
     </div>
 
     <div id="catalog" class="grid gap-4 md:grid-cols-2 xl:grid-cols-3"></div>
@@ -247,10 +242,18 @@
           <div><span class="font-bold">Tipo:</span> Ahorros</div>
         </div>
         <div class="mt-4 flex flex-wrap gap-2">
-          <button type="button" onclick="copyText('2206498570','Cuenta Banco Pichincha copiada')" class="btn-main bg-black/15 px-4 py-2 rounded-xl font-bold">
+          <button
+            type="button"
+            onclick="copyText('2206498570','Cuenta Banco Pichincha copiada')"
+            class="btn-main bg-black/15 px-4 py-2 rounded-xl font-bold"
+          >
             Copiar cuenta
           </button>
-          <button type="button" onclick="copyText('1716552888','Cédula copiada')" class="btn-main bg-black/15 px-4 py-2 rounded-xl font-bold">
+          <button
+            type="button"
+            onclick="copyText('1716552888','Cédula copiada')"
+            class="btn-main bg-black/15 px-4 py-2 rounded-xl font-bold"
+          >
             Copiar cédula
           </button>
         </div>
@@ -265,7 +268,11 @@
           <div><span class="font-bold">Tipo:</span> Ahorros</div>
         </div>
         <div class="mt-4 flex flex-wrap gap-2">
-          <button type="button" onclick="copyText('20380913','Cuenta Banco Guayaquil copiada')" class="btn-main bg-white/20 px-4 py-2 rounded-xl font-bold">
+          <button
+            type="button"
+            onclick="copyText('20380913','Cuenta Banco Guayaquil copiada')"
+            class="btn-main bg-white/20 px-4 py-2 rounded-xl font-bold"
+          >
             Copiar cuenta
           </button>
         </div>
@@ -277,7 +284,12 @@
       <p class="text-slate-300 mt-2">
         Haz tu transferencia y envía el comprobante para activar tu servicio.
       </p>
-      <a href="https://wa.me/593992064254" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 bg-green-500 px-5 py-3 rounded-2xl font-bold hover:bg-green-600 btn-main">
+      <a
+        href="https://wa.me/593992064254"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block mt-4 bg-green-500 px-5 py-3 rounded-2xl font-bold hover:bg-green-600"
+      >
         Abrir WhatsApp
       </a>
     </div>
@@ -291,7 +303,7 @@
       </div>
 
       <div class="mt-4 flex justify-center">
-        <img id="qrImage" alt="QR" class="w-44 h-44 rounded-2xl border">
+        <img id="qrImage" alt="QR" class="w-44 h-44 rounded-2xl border" />
       </div>
 
       <p id="qrError" class="hidden mt-3 text-sm text-slate-500">
@@ -304,10 +316,19 @@
       </p>
 
       <div class="mt-5 flex flex-col sm:flex-row gap-3 justify-center">
-        <button type="button" onclick="copyPageLink()" class="btn-main bg-amber-400 px-5 py-3 rounded-2xl font-bold text-black hover:bg-amber-300">
+        <button
+          type="button"
+          onclick="copyPageLink()"
+          class="btn-main bg-amber-400 px-5 py-3 rounded-2xl font-bold text-black hover:bg-amber-300"
+        >
           Copiar enlace
         </button>
-        <a href="https://wa.me/593992064254" target="_blank" rel="noopener noreferrer" class="btn-main bg-green-500 px-5 py-3 rounded-2xl font-bold text-white hover:bg-green-600">
+        <a
+          href="https://wa.me/593992064254"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-main bg-green-500 px-5 py-3 rounded-2xl font-bold text-white hover:bg-green-600"
+        >
           Enviar comprobante
         </a>
       </div>
@@ -324,29 +345,43 @@
   </footer>
 
   <!-- BOTON WHATSAPP -->
-  <a href="https://wa.me/593992064254" target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 bg-green-500 text-white px-5 py-4 rounded-full shadow-2xl font-bold z-40 hover:bg-green-600 btn-main">
+  <a
+    href="https://wa.me/593992064254"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="fixed bottom-5 right-5 bg-green-500 text-white px-5 py-4 rounded-full shadow-2xl font-bold z-40 hover:bg-green-600"
+  >
     WhatsApp
   </a>
 
   <!-- BOTON SUBIR -->
-  <button type="button" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" id="backTopBtn" class="hidden fixed bottom-5 left-5 bg-white text-slate-900 px-4 py-3 rounded-full shadow-2xl font-bold z-40 border hover:bg-slate-50">
+  <button
+    type="button"
+    onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    id="backTopBtn"
+    class="hidden fixed bottom-24 right-5 bg-slate-900 text-white w-12 h-12 rounded-full shadow-2xl z-40"
+    aria-label="Subir"
+  >
     ↑
   </button>
 
   <!-- TOAST -->
-  <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 opacity-0 transition-all duration-300 bg-slate-900 text-white text-sm font-bold px-5 py-3 rounded-full shadow-2xl z-50">
+  <div
+    id="toast"
+    class="fixed bottom-5 left-1/2 -translate-x-1/2 opacity-0 transition-all duration-300 bg-slate-900 text-white text-sm font-bold px-5 py-3 rounded-full shadow-2xl z-50"
+  >
     Copiado correctamente
   </div>
 
   <script>
-    var WHATSAPP_NUMBER = "593992064254";
+    const WHATSAPP_NUMBER = "593992064254";
 
-    var services = [
+    const services = [
       {
         name: "Netflix 4K",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
-        logoBg: "bg-gradient-to-br from-black via-zinc-900 to-red-950",
         badge: "Top ventas",
+        icon: "🎬",
+        color: "from-black via-zinc-900 to-red-900",
         plans: [
           "Completa 30 días - $7",
           "Completa 60 días - $13",
@@ -356,72 +391,72 @@
       },
       {
         name: "Disney+ Premium",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg",
-        logoBg: "bg-gradient-to-br from-[#08142d] via-[#0b1f4d] to-[#143c8f]",
         badge: "Premium",
+        icon: "✨",
+        color: "from-[#08142d] via-[#0b1f4d] to-[#143c8f]",
         plans: ["Completa 30 días - $8"]
       },
       {
         name: "Spotify Premium",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg",
-        logoBg: "bg-gradient-to-br from-black via-zinc-900 to-green-900",
         badge: "Popular",
+        icon: "🎵",
+        color: "from-black via-zinc-900 to-green-900",
         plans: ["1 mes - $4", "3 meses - $9"]
       },
       {
         name: "Flujo TV",
-        emoji: "📡",
-        color: "from-blue-600 via-blue-700 to-sky-900",
         badge: "Más vendido",
+        icon: "📡",
+        color: "from-blue-600 via-blue-700 to-sky-900",
         plans: ["1 mes - $6.50", "4 meses - $20", "9 meses - $40", "17 meses - $70"]
       },
       {
         name: "Prime Video",
-        emoji: "📺",
-        color: "from-cyan-500 via-sky-600 to-blue-900",
         badge: "Streaming",
+        icon: "📺",
+        color: "from-cyan-500 via-sky-600 to-blue-900",
         plans: ["30 días - $4"]
       },
       {
         name: "YouTube Premium",
-        emoji: "▶️",
-        color: "from-red-500 via-rose-600 to-red-900",
         badge: "Sin anuncios",
+        icon: "▶️",
+        color: "from-red-500 via-rose-600 to-red-900",
         plans: ["1 mes - $4", "3 meses - $9"]
       },
       {
         name: "HBO Max",
-        emoji: "🎞️",
-        color: "from-purple-500 via-violet-700 to-indigo-950",
         badge: "Series",
+        icon: "🎞️",
+        color: "from-purple-500 via-violet-700 to-indigo-950",
         plans: ["1 mes - $4"]
       },
       {
         name: "Crunchyroll",
-        emoji: "🍥",
-        color: "from-orange-500 via-amber-600 to-orange-900",
         badge: "Anime",
+        icon: "🍥",
+        color: "from-orange-500 via-amber-600 to-orange-900",
         plans: ["1 mes - $4"]
       },
       {
         name: "Paramount+",
-        emoji: "🎥",
-        color: "from-sky-400 via-blue-600 to-sky-900",
         badge: "Películas",
+        icon: "🎥",
+        color: "from-sky-400 via-blue-600 to-sky-900",
         plans: ["1 mes - $3"]
       },
       {
         name: "Canva Pro",
-        emoji: "🎨",
-        color: "from-teal-400 via-cyan-600 to-sky-900",
         badge: "Diseño",
+        icon: "🎨",
+        color: "from-teal-400 via-cyan-600 to-sky-900",
         plans: ["1 mes - $4", "3 meses - $10"]
       },
       {
         name: "Servicio Técnico",
-        emoji: "📱",
-        color: "from-slate-700 via-slate-800 to-slate-950",
         badge: "Soporte",
+        icon: "📱",
+        color: "from-slate-700 via-slate-800 to-slate-950",
         plans: [
           "Cambio de pantalla desde - $25",
           "Cambio de batería desde - $15",
@@ -436,25 +471,25 @@
     }
 
     function scrollToSection(id) {
-      var section = getById(id);
+      const section = getById(id);
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
       }
     }
 
     function showToast(message) {
-      var toast = getById("toast");
+      const toast = getById("toast");
       toast.textContent = message || "Copiado correctamente";
       toast.classList.remove("opacity-0");
 
       clearTimeout(window.__toastTimer);
-      window.__toastTimer = setTimeout(function () {
+      window.__toastTimer = setTimeout(() => {
         toast.classList.add("opacity-0");
       }, 1800);
     }
 
     function fallbackCopy(text, message) {
-      var area = document.createElement("textarea");
+      const area = document.createElement("textarea");
       area.value = text;
       area.style.position = "absolute";
       area.style.left = "-9999px";
@@ -470,12 +505,8 @@
 
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(text)
-          .then(function () {
-            showToast(message || "Copiado correctamente");
-          })
-          .catch(function () {
-            fallbackCopy(text, message);
-          });
+          .then(() => showToast(message || "Copiado correctamente"))
+          .catch(() => fallbackCopy(text, message));
       } else {
         fallbackCopy(text, message);
       }
@@ -486,8 +517,18 @@
     }
 
     function openWhatsApp(product, plan) {
-      var text = "Hola, vi tu catálogo y quiero pedir " + product + " - " + plan + ". ¿Está disponible?";
-      var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
+      const text =
+        "Hola, vi tu catálogo y quiero pedir " +
+        product +
+        " - " +
+        plan +
+        ". ¿Está disponible?";
+      const url =
+        "https://wa.me/" +
+        WHATSAPP_NUMBER +
+        "?text=" +
+        encodeURIComponent(text);
+
       window.open(url, "_blank");
     }
 
@@ -504,46 +545,55 @@
       return JSON.stringify(String(value));
     }
 
-    function getMedia(service) {
-      if (service.logo) {
-        return ''
-          + '<div class="media-banner ' + service.logoBg + '">'
-          + '  <img src="' + escapeHtml(service.logo) + '" alt="' + escapeHtml(service.name) + '" class="media-logo" referrerpolicy="no-referrer">'
-          + '</div>';
+    function getServiceHeader(service) {
+      const badge = service.badge || "Premium";
+
+      return (
+        '<div class="bg-gradient-to-br ' + service.color + ' rounded-3xl p-4 text-white relative overflow-hidden">' +
+          '<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-white/10"></div>' +
+          '<div class="relative z-10 flex items-center justify-between gap-3">' +
+            '<div class="flex items-center gap-3 min-w-0">' +
+              '<div class="service-icon w-14 h-14 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center text-3xl shrink-0">' +
+                escapeHtml(service.icon || "⭐") +
+              '</div>' +
+              '<div class="min-w-0">' +
+                '<b class="text-2xl line-clamp-1 block">' + escapeHtml(service.name) + '</b>' +
+              '</div>' +
+            '</div>' +
+            '<span class="shrink-0 text-xs font-bold bg-white/15 border border-white/15 px-3 py-1 rounded-full">' +
+              escapeHtml(badge) +
+            '</span>' +
+          '</div>' +
+        '</div>'
+      );
+    }
+
+    function renderCatalog() {
+      const searchInput = getById("search");
+      const catalog = getById("catalog");
+      const serviceCount = getById("serviceCount");
+
+      const search = (searchInput.value || "").toLowerCase().trim();
+
+      const filtered = services.filter((service) => {
+        const matchesName = service.name.toLowerCase().includes(search);
+        const matchesPlan = service.plans.some((plan) =>
+          plan.toLowerCase().includes(search)
+        );
+        return matchesName || matchesPlan;
+      });
+
+      serviceCount.textContent = filtered.length;
+
+      if (!filtered.length) {
+        catalog.innerHTML =
+          '<div class="md:col-span-2 xl:col-span-3 bg-white p-6 rounded-3xl shadow text-center text-slate-500">' +
+            "No se encontraron resultados." +
+          "</div>";
+        return;
       }
 
-      return ''
-        + '<div class="media-banner bg-gradient-to-br ' + service.color + '">'
-        + '  <div class="media-emoji">' + escapeHtml(service.emoji || "✨") + '</div>'
-        + '</div>';
-    }
+      let html = "";
 
-    function getHeader(service) {
-      var badge = service.badge || "Premium";
-
-      return ''
-        + getMedia(service)
-        + '<div class="mt-4 flex items-start justify-between gap-3">'
-        + '  <div class="min-w-0 flex-1">'
-        + '    <b class="text-2xl line-clamp-1 block">' + escapeHtml(service.name) + '</b>'
-        + '  </div>'
-        + '  <span class="shrink-0 text-xs font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">' + escapeHtml(badge) + '</span>'
-        + '</div>';
-    }
-
-    function render() {
-      try {
-        var searchInput = getById("search");
-        var catalog = getById("catalog");
-        var serviceCount = getById("serviceCount");
-
-        if (!searchInput || !catalog || !serviceCount) return;
-
-        var search = String(searchInput.value || "").toLowerCase().trim();
-        var html = "";
-        var filtered = [];
-        var i, j, s, matchName, matchPlan, service, plan, plansHtml;
-
-        for (i = 0; i < services.length; i++) {
-          s = services[i];
-          matchName = s.name.toLowerCase().indexOf(se
+      filtered.forEach((service) => {
+        let plansH
