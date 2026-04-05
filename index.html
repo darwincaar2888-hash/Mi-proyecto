@@ -1,168 +1,490 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>D.C.R entretenimiento ec</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D.C.R entretenimiento ec</title>
+  <meta name="description" content="Catálogo premium de streaming, fútbol, cuentas digitales y servicio técnico en Ecuador." />
+  <meta name="theme-color" content="#061b3a" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-<script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: Arial, sans-serif; background: #f1f5f9; }
 
-<style>
-body{background:#f1f5f9;font-family:Arial}
-.card{transition:.3s}
-.card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(0,0,0,.15)}
-.fade-in{animation:fade .6s ease}
-@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1}}
-</style>
+    .glass {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
 
+    .card-hover {
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 22px 40px rgba(15, 23, 42, 0.14);
+      border-color: rgba(15, 23, 42, 0.10);
+    }
+
+    .btn-main {
+      transition: all .2s ease;
+    }
+
+    .btn-main:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-glow {
+      background:
+        radial-gradient(circle at top right, rgba(245, 158, 11, 0.20), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.16), transparent 25%);
+    }
+
+    .premium-border {
+      box-shadow: 0 0 0 1px rgba(255,255,255,.05), 0 20px 40px rgba(2,6,23,.20);
+    }
+
+    .media-banner {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      min-height: 145px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+    }
+
+    .media-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(2, 6, 23, .30), rgba(2, 6, 23, .06));
+      pointer-events: none;
+    }
+
+    .media-logo {
+      position: relative;
+      z-index: 1;
+      max-width: 72%;
+      max-height: 62px;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 16px rgba(0, 0, 0, .25));
+    }
+
+    .media-emoji {
+      position: relative;
+      z-index: 1;
+      font-size: 3rem;
+      line-height: 1;
+      filter: drop-shadow(0 10px 16px rgba(0, 0, 0, .22));
+    }
+
+    .fade-up {
+      animation: fadeUp .6s ease both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .pulse-soft {
+      animation: pulseSoft 2s infinite;
+    }
+
+    @keyframes pulseSoft {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,.28); }
+      50% { box-shadow: 0 0 0 12px rgba(34,197,94,0); }
+    }
+
+    .line-clamp-1 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .gold-text {
+      background: linear-gradient(90deg, #fde68a 0%, #fbbf24 50%, #fde68a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      border-radius: 1.75rem;
+      overflow: hidden;
+      min-height: 420px;
+      background: #020617;
+    }
+
+    .hero-image-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(2,6,23,.72), rgba(2,6,23,.18));
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+  </style>
 </head>
-<body>
+<body class="text-slate-900">
 
-<!-- HEADER -->
-<header class="sticky top-0 bg-[#061b3a] text-white p-4 flex justify-between items-center">
-<b>D.C.R entretenimiento ec</b>
-<a href="#catalogo" class="bg-amber-400 text-black px-4 py-2 rounded-xl font-bold">Comprar</a>
-</header>
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 bg-[#061b3a]/95 glass text-white shadow-lg border-b border-white/10">
+    <div class="max-w-6xl mx-auto p-4 flex justify-between items-center gap-3">
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="w-14 h-14 rounded-2xl bg-white text-[#061b3a] flex items-center justify-center font-extrabold text-xl shrink-0 shadow">
+          DCR
+        </div>
+        <div class="min-w-0">
+          <h1 class="font-bold text-lg truncate">D.C.R entretenimiento ec</h1>
+          <p class="text-xs text-slate-300 uppercase tracking-[0.25em]">Premium Ecuador</p>
+        </div>
+      </div>
 
-<!-- HERO -->
-<section class="p-6 text-white bg-gradient-to-br from-[#061b3a] to-[#12407d]">
-<h2 class="text-3xl font-bold">Streaming y cuentas premium 🔥</h2>
-<p class="mt-2">Compra rápida por WhatsApp</p>
-<a href="#catalogo" class="mt-4 inline-block bg-green-500 px-5 py-3 rounded-xl font-bold">COMPRAR AHORA</a>
-</section>
+      <div class="flex gap-2 shrink-0">
+        <button type="button" onclick="copyPageLink()" class="btn-main bg-white/10 px-3 py-2 rounded-xl text-sm font-bold hover:bg-white/20">
+          Compartir
+        </button>
+        <button type="button" onclick="scrollToSection('pagos')" class="btn-main bg-amber-400 text-black px-3 py-2 rounded-xl text-sm font-bold hover:bg-amber-300">
+          Pagar
+        </button>
+      </div>
+    </div>
+  </header>
 
-<!-- CATALOGO -->
-<section id="catalogo" class="p-4">
-<h2 class="text-2xl font-bold mb-4">Catálogo</h2>
+  <!-- HERO -->
+  <section class="max-w-6xl mx-auto p-4">
+    <div class="rounded-[2rem] hero-glow bg-gradient-to-br from-[#061b3a] via-[#0c2c59] to-[#12407d] text-white p-6 md:p-8 shadow-xl relative overflow-hidden premium-border fade-up">
+      <div class="absolute -right-10 -top-10 w-44 h-44 rounded-full bg-white/10"></div>
+      <div class="absolute right-8 bottom-[-40px] w-32 h-32 rounded-full bg-amber-400/15"></div>
 
-<input id="search" placeholder="Buscar..." 
-class="w-full p-3 rounded-xl border mb-4"
-oninput="render()">
+      <div class="relative z-10 grid md:grid-cols-[1.05fr_0.95fr] gap-6 items-center">
+        <div>
+          <span class="inline-flex items-center gap-2 bg-white/10 border border-white/10 rounded-full px-4 py-2 text-xs font-bold tracking-wider uppercase">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            Activo · Atención rápida
+          </span>
 
-<div id="catalog" class="grid gap-4"></div>
+          <h2 class="mt-5 text-4xl md:text-5xl font-extrabold leading-tight">
+            Streaming, fútbol y cuentas premium <span class="gold-text">más fáciles de activar</span>
+          </h2>
 
-</section>
+          <p class="mt-4 text-slate-200 text-lg max-w-3xl">
+            Compra rápido, paga fácil y recibe atención directa por WhatsApp. Catálogo claro, promociones y acceso premium en un solo lugar.
+          </p>
 
-<script>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <button type="button" onclick="scrollToSection('catalogo')" class="btn-main bg-amber-400 text-black px-5 py-3 rounded-2xl font-bold hover:bg-amber-300">
+              Ver catálogo
+            </button>
+            <button type="button" onclick="openWhatsApp('Catálogo Premium','Quiero comprar ahora mismo')" class="btn-main pulse-soft bg-green-500 text-white px-5 py-3 rounded-2xl font-bold hover:bg-green-600">
+              COMPRAR AHORA
+            </button>
+          </div>
 
-const WHATSAPP = "593992064254";
+          <div class="mt-6 grid sm:grid-cols-3 gap-3">
+            <div class="bg-white/10 border border-white/10 rounded-2xl p-4">
+              <div class="text-2xl">⚡</div>
+              <div class="mt-2 font-bold">Activación rápida</div>
+              <div class="text-sm text-slate-300">Respuesta por WhatsApp</div>
+            </div>
+            <div class="bg-white/10 border border-white/10 rounded-2xl p-4">
+              <div class="text-2xl">💳</div>
+              <div class="mt-2 font-bold">Pago fácil</div>
+              <div class="text-sm text-slate-300">Banco Pichincha y Guayaquil</div>
+            </div>
+            <div class="bg-white/10 border border-white/10 rounded-2xl p-4">
+              <div class="text-2xl">✅</div>
+              <div class="mt-2 font-bold">Atención directa</div>
+              <div class="text-sm text-slate-300">Sin complicaciones</div>
+            </div>
+          </div>
+        </div>
 
-function buy(product,plan){
-let msg=`Hola quiero comprar ${product} - ${plan}`;
-window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`);
-}
+        <!-- IMAGEN HERO -->
+        <div class="hero-image-wrap">
+          <!-- CAMBIA TU-IMAGEN.jpg POR EL NOMBRE EXACTO DE TU IMAGEN -->
+          <img src="TU-IMAGEN.jpg" alt="Imagen principal DCR" class="hero-image">
+          <div class="absolute bottom-0 left-0 right-0 z-10 p-5">
+            <div class="bg-black/35 border border-white/10 rounded-3xl p-4 backdrop-blur-md">
+              <div class="text-sm uppercase tracking-[0.2em] text-slate-300 font-bold">Imagen destacada</div>
+              <p class="mt-2 text-sm text-slate-200">
+                Usa aquí tu imagen ya subida a GitHub para darle estilo premium a tu landing.
+              </p>
+              <button type="button" onclick="openWhatsApp('Catálogo Premium','Quiero información de los servicios premium')" class="btn-main w-full mt-4 bg-white text-[#061b3a] p-3 rounded-2xl font-bold">
+                Hablar por WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-const services = [
+  <!-- DESTACADOS -->
+  <section class="max-w-6xl mx-auto p-4">
+    <div class="grid gap-4 md:grid-cols-3">
+      <div class="bg-white rounded-3xl shadow p-5 border border-slate-200 card-hover fade-up">
+        <div class="text-sm text-slate-500">Promoción destacada</div>
+        <div class="mt-2 text-2xl font-extrabold">Netflix 4K</div>
+        <div class="mt-1 text-slate-600">1 perfil 80 días - $5</div>
+      </div>
+      <div class="bg-white rounded-3xl shadow p-5 border border-slate-200 card-hover fade-up">
+        <div class="text-sm text-slate-500">Más solicitado</div>
+        <div class="mt-2 text-2xl font-extrabold">Flujo TV</div>
+        <div class="mt-1 text-slate-600">1 mes - $6.50</div>
+      </div>
+      <div class="bg-white rounded-3xl shadow p-5 border border-slate-200 card-hover fade-up">
+        <div class="text-sm text-slate-500">Precio bomba</div>
+        <div class="mt-2 text-2xl font-extrabold">Canva Pro</div>
+        <div class="mt-1 text-slate-600">3 meses - $1</div>
+      </div>
+    </div>
+  </section>
 
-{
-name:"Netflix 4K",
-plans:[
-"30 días - $7",
-"60 días - $12",
-"90 días - $17"
-]
-},
+  <!-- FUTBOL -->
+  <section id="futbol" class="max-w-6xl mx-auto p-4">
+    <div class="rounded-[2rem] overflow-hidden bg-gradient-to-br from-slate-950 via-[#08111d] to-[#0f2f5a] text-white shadow-xl premium-border fade-up">
+      <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-0">
+        <div class="p-6 md:p-8">
+          <div class="inline-flex items-center gap-2 bg-red-500/15 border border-red-300/20 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-[0.2em] text-red-300">
+            ⚽ Zona fútbol premium
+          </div>
 
-{
-name:"Disney+ Premium",
-plans:["30 días - $8"]
-},
+          <h3 class="mt-5 text-3xl md:text-5xl font-extrabold leading-tight">
+            No te pierdas <span class="text-amber-300">ningún partido</span>
+          </h3>
 
-{
-name:"Spotify Premium",
-plans:[
-"30 días - $4",
-"90 días - $9.50"
-]
-},
+          <p class="mt-4 text-slate-300 text-lg">
+            Si te gusta el fútbol, aquí tienes acceso rápido, estable y premium para ver partidos en vivo sin pagar de más.
+          </p>
 
-{
-name:"Flujo TV",
-plans:[
-"1 mes - $6.50",
-"4 meses - $20",
-"9 meses - $40",
-"17 meses - $70"
-]
-},
+          <div class="mt-6 grid sm:grid-cols-2 gap-3">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+              <div class="text-2xl">📺</div>
+              <div class="mt-2 font-bold">Partidos en vivo</div>
+              <div class="text-sm text-slate-400">Acceso directo y estable</div>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+              <div class="text-2xl">🔥</div>
+              <div class="mt-2 font-bold">Más emoción</div>
+              <div class="text-sm text-slate-400">Ideal para fines de semana</div>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+              <div class="text-2xl">💸</div>
+              <div class="mt-2 font-bold">Paga menos</div>
+              <div class="text-sm text-slate-400">Ahorra sin perder calidad</div>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+              <div class="text-2xl">💬</div>
+              <div class="mt-2 font-bold">Activa hoy</div>
+              <div class="text-sm text-slate-400">Atención por WhatsApp</div>
+            </div>
+          </div>
 
-{
-name:"Prime Video",
-plans:["30 días - $4.50"]
-},
+          <div class="mt-6 flex flex-wrap gap-3">
+            <button type="button" onclick="openWhatsApp('Fútbol Premium','Quiero contratar para ver fútbol en vivo')" class="btn-main pulse-soft bg-green-500 text-white px-5 py-3 rounded-2xl font-bold hover:bg-green-600">
+              CONTRATAR PARA VER FÚTBOL
+            </button>
+            <button type="button" onclick="scrollToSection('catalogo')" class="btn-main bg-white/10 px-5 py-3 rounded-2xl font-bold hover:bg-white/15">
+              Ver servicios
+            </button>
+          </div>
+        </div>
 
-{
-name:"YouTube Premium",
-plans:[
-"30 días - $4",
-"90 días - $9.50"
-]
-},
+        <div class="relative min-h-[320px] flex items-center justify-center p-6">
+          <div class="relative bg-gradient-to-br from-yellow-400 via-yellow-300 to-amber-500 text-slate-950 rounded-[2rem] w-full max-w-sm p-6 shadow-2xl">
+            <div class="text-sm font-bold uppercase tracking-[0.2em] text-slate-700">Oferta fútbol</div>
+            <div class="mt-3 text-3xl font-extrabold">Vive el partido</div>
+            <div class="mt-2 text-slate-800">Más cómodo, más rápido y sin pagar de más.</div>
+            <div class="mt-5 bg-black/10 rounded-2xl p-4">
+              <div class="font-bold">Perfecto para:</div>
+              <ul class="mt-2 space-y-2 text-sm">
+                <li>• Ver ligas y partidos en vivo</li>
+                <li>• Compartir acceso rápido</li>
+                <li>• Activación por WhatsApp</li>
+              </ul>
+            </div>
+            <button type="button" onclick="openWhatsApp('Fútbol Premium','Quiero activar acceso premium ahora')" class="btn-main w-full mt-5 bg-slate-950 text-white px-5 py-3 rounded-2xl font-bold">
+              ACTIVAR AHORA
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-{
-name:"HBO Max",
-plans:["30 días - $4"]
-},
+  <!-- CATALOGO -->
+  <section id="catalogo" class="max-w-6xl mx-auto p-4 space-y-4">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+      <div>
+        <h2 class="font-extrabold text-3xl">Catálogo de servicios</h2>
+        <p class="text-slate-500">Busca y compara tus planes</p>
+      </div>
 
-{
-name:"Crunchyroll",
-plans:["30 días - $4"]
-},
+      <div class="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-2xl px-4 py-3 shadow">
+        <span class="font-bold text-slate-900" id="serviceCount">0</span>
+        <span class="text-slate-500">servicios visibles</span>
+      </div>
+    </div>
 
-{
-name:"Paramount+",
-plans:["30 días - $5"]
-},
+    <div class="bg-white rounded-2xl shadow p-4">
+      <input
+        id="search"
+        type="text"
+        placeholder="Buscar Netflix, Flujo TV, Disney+, Spotify, servicio técnico..."
+        class="w-full p-4 border rounded-2xl outline-none focus:ring-2 focus:ring-amber-400"
+        autocomplete="off"
+      />
+    </div>
 
-{
-name:"Canva Pro",
-plans:["3 meses - $1"]
-}
+    <div id="catalog" class="grid gap-4 md:grid-cols-2 xl:grid-cols-3"></div>
+  </section>
 
-];
+  <!-- BENEFICIOS -->
+  <section class="max-w-6xl mx-auto p-4">
+    <div class="grid gap-4 md:grid-cols-3">
+      <div class="bg-white rounded-3xl p-5 shadow border border-slate-200 card-hover fade-up">
+        <div class="text-2xl">⚡</div>
+        <h3 class="mt-3 text-xl font-bold">Activación rápida</h3>
+        <p class="mt-2 text-slate-500">Atención directa y respuesta por WhatsApp.</p>
+      </div>
 
-function render(){
+      <div class="bg-white rounded-3xl p-5 shadow border border-slate-200 card-hover fade-up">
+        <div class="text-2xl">🛡️</div>
+        <h3 class="mt-3 text-xl font-bold">Compra confiable</h3>
+        <p class="mt-2 text-slate-500">Proceso claro, simple y fácil de confirmar.</p>
+      </div>
 
-let search=document.getElementById("search").value.toLowerCase();
+      <div class="bg-white rounded-3xl p-5 shadow border border-slate-200 card-hover fade-up">
+        <div class="text-2xl">💬</div>
+        <h3 class="mt-3 text-xl font-bold">Soporte directo</h3>
+        <p class="mt-2 text-slate-500">Comunicación rápida para resolver dudas y pedidos.</p>
+      </div>
+    </div>
+  </section>
 
-let html="";
+  <!-- PAGOS -->
+  <section id="pagos" class="max-w-6xl mx-auto p-4 space-y-4">
+    <h2 class="font-extrabold text-3xl">Métodos de pago</h2>
 
-services
-.filter(s=>s.name.toLowerCase().includes(search))
-.forEach(s=>{
+    <div class="grid gap-4 md:grid-cols-2">
+      <div class="bg-yellow-400 p-5 rounded-3xl text-black shadow">
+        <div class="text-2xl mb-2">💳</div>
+        <b class="text-2xl">Banco Pichincha</b>
+        <div class="mt-4 space-y-2 text-lg">
+          <div><span class="font-bold">Cuenta:</span> 2206498570</div>
+          <div><span class="font-bold">Nombre:</span> Darwin Cañar</div>
+          <div><span class="font-bold">Cédula:</span> 1716552888</div>
+          <div><span class="font-bold">Tipo:</span> Ahorros</div>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <button type="button" onclick="copyText('2206498570','Cuenta Banco Pichincha copiada')" class="btn-main bg-black/15 px-4 py-2 rounded-xl font-bold">
+            Copiar cuenta
+          </button>
+          <button type="button" onclick="copyText('1716552888','Cédula copiada')" class="btn-main bg-black/15 px-4 py-2 rounded-xl font-bold">
+            Copiar cédula
+          </button>
+        </div>
+      </div>
 
-html+=`
-<div class="card bg-white p-5 rounded-2xl fade-in">
+      <div class="bg-pink-500 text-white p-5 rounded-3xl shadow">
+        <div class="text-2xl mb-2">💳</div>
+        <b class="text-2xl">Banco Guayaquil</b>
+        <div class="mt-4 space-y-2 text-lg">
+          <div><span class="font-bold">Cuenta:</span> 20380913</div>
+          <div><span class="font-bold">Nombre:</span> Darwin Cañar</div>
+          <div><span class="font-bold">Tipo:</span> Ahorros</div>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <button type="button" onclick="copyText('20380913','Cuenta Banco Guayaquil copiada')" class="btn-main bg-white/20 px-4 py-2 rounded-xl font-bold">
+            Copiar cuenta
+          </button>
+        </div>
+      </div>
+    </div>
 
-<h3 class="text-xl font-bold mb-3">${s.name}</h3>
+    <div class="bg-[#061b3a] text-white p-5 rounded-3xl shadow-xl">
+      <h3 class="font-bold text-xl">Confirma por WhatsApp</h3>
+      <p class="text-slate-300 mt-2">
+        Haz tu transferencia y envía el comprobante para activar tu servicio.
+      </p>
+      <a href="https://wa.me/593992064254" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 bg-green-500 px-5 py-3 rounded-2xl font-bold hover:bg-green-600">
+        Abrir WhatsApp
+      </a>
+    </div>
+  </section>
 
-${s.plans.map(p=>`
-<div class="flex justify-between items-center bg-slate-100 p-3 rounded-xl mb-2">
-<span>${p}</span>
-<button onclick="buy('${s.name}','${p}')" 
-class="bg-[#061b3a] text-white px-3 py-2 rounded-lg text-sm font-bold">
-Comprar
-</button>
-</div>
-`).join("")}
+  <!-- QR -->
+  <section class="max-w-6xl mx-auto p-4 pb-10">
+    <div class="bg-white rounded-3xl shadow p-6 text-center">
+      <div class="inline-block bg-slate-100 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-slate-600">
+        Compartir catálogo
+      </div>
 
-<button onclick="buy('${s.name}','info')" 
-class="w-full mt-3 bg-green-500 text-white p-3 rounded-xl font-bold">
-COMPRAR AHORA 🔥
-</button>
+      <div class="mt-4 flex justify-center">
+        <img id="qrImage" alt="QR" class="w-44 h-44 rounded-2xl border" />
+      </div>
 
-</div>
-`;
+      <p id="qrError" class="hidden mt-3 text-sm text-slate-500">
+        No se pudo cargar el QR. Usa el botón de copiar enlace.
+      </p>
 
-});
+      <h3 class="mt-4 text-2xl font-extrabold">Acceso directo a tu catálogo</h3>
+      <p class="mt-2 text-slate-500">
+        Comparte este enlace o muestra el QR para que tus clientes entren rápido.
+      </p>
 
-document.getElementById("catalog").innerHTML=html;
+      <div class="mt-5 flex flex-col sm:flex-row gap-3 justify-center">
+        <button type="button" onclick="copyPageLink()" class="btn-main bg-amber-400 px-5 py-3 rounded-2xl font-bold text-black hover:bg-amber-300">
+          Copiar enlace
+        </button>
+        <a href="https://wa.me/593992064254" target="_blank" rel="noopener noreferrer" class="btn-main bg-green-500 px-5 py-3 rounded-2xl font-bold text-white hover:bg-green-600">
+          Enviar comprobante
+        </a>
+      </div>
+    </div>
+  </section>
 
-}
+  <!-- FOOTER -->
+  <footer class="bg-white border-t p-8 text-center">
+    <div class="w-14 h-14 mx-auto rounded-2xl bg-[#061b3a] text-white flex items-center justify-center font-extrabold shadow">
+      DCR
+    </div>
+    <h4 class="mt-4 text-2xl font-extrabold">D.C.R entretenimiento ec</h4>
+    <p class="mt-2 text-slate-500">Tu catálogo premium online</p>
+  </footer>
 
-render();
+  <!-- BOTON WHATSAPP -->
+  <a href="https://wa.me/593992064254" target="_blank" rel="noopener noreferrer" class="fixed bottom-5 right-5 bg-green-500 text-white px-5 py-4 rounded-full shadow-2xl font-bold z-40 hover:bg-green-600">
+    WhatsApp
+  </a>
 
-</script>
+  <!-- TOAST -->
+  <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 opacity-0 transition-all duration-300 bg-slate-900 text-white text-sm font-bold px-5 py-3 rounded-full shadow-2xl z-50">
+    Copiado correctamente
+  </div>
 
-</body>
-</html>
+  <script>
+    const WHATSAPP_NUMBER = "593992064254";
+
+    const services = [
+      {
+        name: "Netflix 4K",
+        logo: "https
