@@ -131,6 +131,7 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(to top, rgba(2,6,23,.72), rgba(2,6,23,.18));
+      pointer-events: none;
     }
 
     .hero-image {
@@ -139,6 +140,14 @@
       min-height: 420px;
       object-fit: cover;
       display: block;
+    }
+
+    .hero-overlay-box {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 2;
     }
   </style>
 </head>
@@ -217,15 +226,14 @@
           </div>
         </div>
 
-        <!-- IMAGEN HERO -->
+        <!-- IMAGEN -->
         <div class="hero-image-wrap">
-          <!-- CAMBIA TU-IMAGEN.jpg POR EL NOMBRE EXACTO DE TU IMAGEN -->
-          <img src="TU-IMAGEN.jpg" alt="Imagen principal DCR" class="hero-image">
-          <div class="absolute bottom-0 left-0 right-0 z-10 p-5">
+          <img src="cuentas-premium-disponibles" alt="Cuentas premium disponibles" class="hero-image">
+          <div class="hero-overlay-box">
             <div class="bg-black/35 border border-white/10 rounded-3xl p-4 backdrop-blur-md">
               <div class="text-sm uppercase tracking-[0.2em] text-slate-300 font-bold">Imagen destacada</div>
               <p class="mt-2 text-sm text-slate-200">
-                Usa aquí tu imagen ya subida a GitHub para darle estilo premium a tu landing.
+                Streaming premium, fútbol en vivo y activación rápida por WhatsApp.
               </p>
               <button type="button" onclick="openWhatsApp('Catálogo Premium','Quiero información de los servicios premium')" class="btn-main w-full mt-4 bg-white text-[#061b3a] p-3 rounded-2xl font-bold">
                 Hablar por WhatsApp
@@ -484,7 +492,4 @@
   <script>
     const WHATSAPP_NUMBER = "593992064254";
 
-    const services = [
-      {
-        name: "Netflix 4K",
-        logo: "https
+    const se
