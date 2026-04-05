@@ -1,174 +1,371 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>D.C.R entretenimiento ec</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D.C.R entretenimiento ec</title>
+  <meta name="theme-color" content="#061b3a" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-<script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f5f9;
+    }
 
-<style>
-body{font-family:Arial;background:#f1f5f9;}
-.card{transition:.3s;}
-.card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(0,0,0,.15);}
-.btn{transition:.2s;}
-.btn:hover{transform:scale(1.05);}
-</style>
+    .card {
+      transition: .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 35px rgba(0,0,0,.12);
+    }
+
+    .btn {
+      transition: .2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.03);
+    }
+
+    .service-logo {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      border-radius: 16px;
+      background: #fff;
+      padding: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.08);
+      flex-shrink: 0;
+    }
+
+    .mini-card {
+      transition: .2s ease;
+    }
+
+    .mini-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(0,0,0,.10);
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- URGENCIA -->
-<div class="bg-amber-400 text-black text-center font-bold py-2">
-⚡ Activación inmediata · Escríbeme ahora por WhatsApp
-</div>
+  <!-- URGENCIA -->
+  <div class="bg-amber-400 text-black text-center font-bold py-2 px-3 text-sm">
+    ⚡ Activación inmediata · Escríbeme ahora por WhatsApp
+  </div>
 
-<!-- HEADER -->
-<header class="bg-[#061b3a] text-white p-4 flex justify-between items-center">
-<div class="flex items-center gap-3">
-<div class="bg-white text-[#061b3a] w-12 h-12 flex items-center justify-center rounded-xl font-bold">DCR</div>
-<div>
-<h1 class="font-bold">D.C.R entretenimiento</h1>
-<p class="text-xs">PREMIUM ECUADOR</p>
-</div>
-</div>
-<a href="https://wa.me/593992064254" class="btn bg-green-500 px-4 py-2 rounded-xl font-bold">
-WhatsApp
-</a>
-</header>
+  <!-- HEADER -->
+  <header class="bg-[#061b3a] text-white p-4 sticky top-0 z-40 shadow-lg">
+    <div class="max-w-6xl mx-auto flex justify-between items-center gap-3">
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="bg-white text-[#061b3a] w-12 h-12 flex items-center justify-center rounded-xl font-bold shrink-0">
+          DCR
+        </div>
+        <div class="min-w-0">
+          <h1 class="font-bold truncate">D.C.R entretenimiento</h1>
+          <p class="text-xs tracking-[0.25em] uppercase text-slate-300">Premium Ecuador</p>
+        </div>
+      </div>
 
-<!-- HERO -->
-<section class="p-4">
-<div class="bg-black rounded-3xl overflow-hidden shadow-xl relative">
+      <a href="https://wa.me/593992064254?text=Hola,%20quiero%20información"
+         target="_blank"
+         class="btn bg-green-500 px-4 py-2 rounded-xl font-bold shrink-0">
+        WhatsApp
+      </a>
+    </div>
+  </header>
 
-<img src="cuentas-premium-disponibles.jpg" class="w-full">
+  <!-- HERO -->
+  <section class="p-4">
+    <div class="max-w-6xl mx-auto bg-black rounded-3xl overflow-hidden shadow-xl relative">
+      <img src="cuentas-premium-disponibles.jpg" alt="Cuentas premium disponibles" class="w-full object-cover">
 
-<div class="absolute inset-0 bg-black/60"></div>
+      <div class="absolute inset-0 bg-black/55"></div>
 
-<div class="absolute bottom-5 left-5 right-5 text-white">
-<h2 class="text-3xl font-extrabold">Streaming + Fútbol Premium</h2>
-<p class="mt-2 text-slate-300">Activa en minutos</p>
+      <div class="absolute bottom-5 left-5 right-5 text-white">
+        <h2 class="text-2xl md:text-4xl font-extrabold">Streaming + Fútbol Premium</h2>
+        <p class="mt-2 text-slate-200">Activa en minutos por WhatsApp</p>
 
-<a href="https://wa.me/593992064254?text=Hola,%20quiero%20comprar%20una%20cuenta"
-class="btn block mt-4 bg-green-500 text-center py-3 rounded-2xl font-bold">
-🔥 COMPRAR AHORA
-</a>
+        <a href="https://wa.me/593992064254?text=Hola,%20quiero%20comprar%20una%20cuenta"
+           target="_blank"
+           class="btn block mt-4 bg-green-500 text-center py-3 rounded-2xl font-bold text-lg">
+          🔥 COMPRAR AHORA
+        </a>
+      </div>
+    </div>
+  </section>
 
-</div>
-</div>
-</section>
+  <!-- CONFIANZA -->
+  <section class="p-4">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-4">
+      <div class="card bg-white p-5 rounded-3xl">
+        <h3 class="font-bold text-lg">⚡ Activación rápida</h3>
+        <p class="text-sm text-slate-500 mt-2">En minutos por WhatsApp.</p>
+      </div>
 
-<!-- CONFIANZA -->
-<section class="p-4 grid md:grid-cols-3 gap-4">
-<div class="card bg-white p-5 rounded-3xl">
-<h3 class="font-bold">⚡ Activación rápida</h3>
-<p class="text-sm text-slate-500">En minutos por WhatsApp</p>
-</div>
+      <div class="card bg-white p-5 rounded-3xl">
+        <h3 class="font-bold text-lg">🔒 Pago seguro</h3>
+        <p class="text-sm text-slate-500 mt-2">Transferencia confiable y confirmación rápida.</p>
+      </div>
 
-<div class="card bg-white p-5 rounded-3xl">
-<h3 class="font-bold">🔒 Pago seguro</h3>
-<p class="text-sm text-slate-500">Transferencia confiable</p>
-</div>
+      <div class="card bg-white p-5 rounded-3xl">
+        <h3 class="font-bold text-lg">✅ Atención directa</h3>
+        <p class="text-sm text-slate-500 mt-2">Soporte inmediato para resolver tus dudas.</p>
+      </div>
+    </div>
+  </section>
 
-<div class="card bg-white p-5 rounded-3xl">
-<h3 class="font-bold">✅ Soporte directo</h3>
-<p class="text-sm text-slate-500">Atención inmediata</p>
-</div>
-</section>
+  <!-- FÚTBOL -->
+  <section class="p-4">
+    <div class="max-w-6xl mx-auto bg-gradient-to-br from-black to-blue-900 text-white p-6 rounded-3xl shadow-xl">
+      <h2 class="text-2xl md:text-3xl font-extrabold">⚽ Fútbol en vivo</h2>
+      <p class="mt-2 text-slate-300">No te pierdas ningún partido. Acceso premium rápido y estable.</p>
 
-<!-- FUTBOL -->
-<section class="p-4">
-<div class="bg-gradient-to-br from-black to-blue-900 text-white p-6 rounded-3xl">
-<h2 class="text-2xl font-bold">⚽ Fútbol en vivo</h2>
-<p class="mt-2 text-slate-300">No te pierdas ningún partido</p>
+      <a href="https://wa.me/593992064254?text=Quiero%20activar%20fútbol%20premium"
+         target="_blank"
+         class="btn block mt-4 bg-yellow-400 text-black text-center py-3 rounded-xl font-bold">
+        ACTIVAR FÚTBOL
+      </a>
+    </div>
+  </section>
 
-<a href="https://wa.me/593992064254?text=Quiero%20fútbol%20premium"
-class="btn block mt-4 bg-yellow-400 text-black text-center py-3 rounded-xl font-bold">
-ACTIVAR FÚTBOL
-</a>
-</div>
-</section>
+  <!-- CATÁLOGO -->
+  <section id="catalogo" class="p-4 pb-28">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold mb-4">Catálogo de servicios</h2>
 
-<!-- CATALOGO -->
-<section class="p-4 space-y-4">
-<h2 class="text-3xl font-bold">Servicios</h2>
+      <div class="grid gap-4 md:grid-cols-2">
 
-<!-- NETFLIX -->
-<div class="card bg-white p-5 rounded-3xl">
-<h3 class="font-bold">Netflix 4K</h3>
-<p>1 perfil 80 días - $5</p>
-<p>30 días - $7</p>
-<p>60 días - $12</p>
-<p>90 días - $17</p>
-<a href="https://wa.me/593992064254?text=Netflix"
-class="btn block mt-3 bg-[#061b3a] text-white text-center p-3 rounded-xl font-bold">
-Comprar
-</a>
-</div>
+        <!-- Netflix -->
+        <div class="card bg-white p-5 rounded-3xl">
+          <div class="flex items-start gap-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="service-logo">
+            <div class="min-w-0">
+              <h3 class="font-bold text-2xl">Netflix 4K</h3>
+              <div class="mt-3 space-y-1 text-slate-700">
+                <p>1 perfil 80 días - $5</p>
+                <p>30 días - $7</p>
+                <p>60 días - $12</p>
+                <p>90 días - $17</p>
+              </div>
+            </div>
+          </div>
 
-<!-- DISNEY -->
-<div class="card bg-white p-5 rounded-3xl">
-<h3 class="font-bold">Disney+</h3>
-<p>30 días - $8</p>
-<a href="https://wa.me/593992064254?text=Disney"
-class="btn block mt-3 bg-[#061b3a] text-white text-center p-3 rounded-xl font-bold">
-Comprar
-</a>
-</div>
+          <a href="https://wa.me/593992064254?text=Hola,%20quiero%20activar%20Netflix%204K"
+             target="_blank"
+             class="btn block mt-5 bg-[#061b3a] text-white text-center p-3 rounded-xl font-bold">
+            Comprar Netflix
+          </a>
+        </div>
 
-<!-- SPOTIFY -->
-<div class="card bg-white p-5 rounded-3xl">
-<h3 class="font-bold">Spotify</h3>
-<p>30 días - $4</p>
-<p>90 días - $9.50</p>
-<a href="https://wa.me/593992064254?text=Spotify"
-class="btn block mt-3 bg-[#061b3a] text-white text-center p-3 rounded-xl font-bold">
-Comprar
-</a>
-</div>
+        <!-- Disney -->
+        <div class="card bg-white p-5 rounded-3xl">
+          <div class="flex items-start gap-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney Plus" class="service-logo">
+            <div class="min-w-0">
+              <h3 class="font-bold text-2xl">Disney+ Premium</h3>
+              <div class="mt-3 space-y-1 text-slate-700">
+                <p>30 días - $8</p>
+              </div>
+            </div>
+          </div>
 
-<!-- FLUJO -->
-<div class="card bg-white p-5 rounded-3xl">
-<h3 class="font-bold">Flujo TV</h3>
-<p>1 mes - $6.50</p>
-<p>4 meses - $20</p>
-<p>9 meses - $40</p>
-<p>17 meses - $70</p>
-<a href="https://wa.me/593992064254?text=FlujoTV"
-class="btn block mt-3 bg-[#061b3a] text-white text-center p-3 rounded-xl font-bold">
-Comprar
-</a>
-</div>
+          <a href="https://wa.me/593992064254?text=Hola,%20quiero%20activar%20Disney%2B%20Premium"
+             target="_blank"
+             class="btn block mt-5 bg-[#061b3a] text-white text-center p-3 rounded-xl font-bold">
+            Comprar Disney+
+          </a>
+        </div>
 
-<!-- MÁS -->
-<div class="grid grid-cols-2 gap-3">
-<div class="card bg-white p-4 rounded-xl text-center">YouTube $4</div>
-<div class="card bg-white p-4 rounded-xl text-center">HBO $4</div>
-<div class="card bg-white p-4 rounded-xl text-center">Crunchyroll $4</div>
-<div class="card bg-white p-4 rounded-xl text-center">Paramount $5</div>
-<div class="card bg-white p-4 rounded-xl text-center">Canva $1</div>
-</div>
+        <!-- Spotify -->
+        <div class="card bg-white p-5 rounded-3xl">
+          <div class="flex items-start gap-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify" class="service-logo">
+            <div class="min-w-0">
+              <h3 class="font-bold text-2xl">Spotify Premium</h3>
+              <div class="mt-3 space-y-1 text-slate-700">
+                <p>30 días - $4</p>
+                <p>90 días - $9.50</p>
+              </div>
+            </div>
+          </div>
 
-</section>
+          <a href="https://wa.me/593992064254?text=Hola,%20quiero%20activar%20Spotify%20Premium"
+             target="_blank"
+             class="btn block mt-5 bg-[#061b3a] text-white text-center p-3 rounded-xl font-bold">
+            Comprar Spotify
+          </a>
+        </div>
 
-<!-- CIERRE -->
-<section class="p-4">
-<div class="bg-[#061b3a] text-white p-6 rounded-3xl text-center">
-<h2 class="text-2xl font-bold">Activa tu cuenta ahora</h2>
-<a href="https://wa.me/593992064254"
-class="btn block mt-4 bg-green-500 py-3 rounded-xl font-bold">
-🔥 ESCRÍBEME
-</a>
-</div>
-</section>
+        <!-- Flujo TV -->
+        <div class="card bg-white p-5 rounded-3xl">
+          <div class="flex items-start gap-4">
+            <div class="service-logo flex items-center justify-center text-2xl">📡</div>
+            <div class="min-w-0">
+              <h3 class="font-bold text-2xl">Flujo TV</h3>
+              <div class="mt-3 space-y-1 text-slate-700">
+                <p>1 mes - $6.50</p>
+                <p>4 meses - $20</p>
+                <p>9 meses - $40</p>
+                <p>17 meses - $70</p>
+              </div>
+            </div>
+          </div>
 
-<!-- BOTONES -->
-<div class="fixed bottom-5 right-5 flex flex-col gap-2">
-<a href="#"
-class="bg-amber-400 text-black px-4 py-2 rounded-full font-bold">Catálogo</a>
-<a href="https://wa.me/593992064254"
-class="bg-green-500 text-white px-5 py-3 rounded-full font-bold">WhatsApp</a>
-</div>
+          <a href="https://wa.me/593992064254?text=Hola,%20quiero%20activar%20Flujo%20TV"
+             target="_blank"
+             class="btn block mt-5 bg-[#061b3a] text-white text-center p-3 rounded-xl font-bold">
+            Comprar Flujo TV
+          </a>
+        </div>
+
+        <!-- Prime Video -->
+        <div class="card bg-white p-5 rounded-3xl">
+          <div class="flex items-start gap-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Video.png" alt="Prime Video" class="service-logo">
+            <div class="min-w-0">
+              <h3 class="font-bold text-2xl">Prime Video</h3>
+              <div class="mt-3 space-y-1 text-slate-700">
+                <p>30 días - $4.50</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/593992064254?text=Hola,%20quiero%20activar%20Prime%20Video"
+             target="_blank"
+             class="btn block mt-5 bg-[#061b3a] text-white text-center p-3 rounded-xl font-bold">
+            Comprar Prime Video
+          </a>
+        </div>
+
+        <!-- YouTube -->
+        <div class="card bg-white p-5 rounded-3xl">
+          <div class="flex items-start gap-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube Premium" class="service-logo">
+            <div class="min-w-0">
+              <h3 class="font-bold text-2xl">YouTube Premium</h3>
+              <div class="mt-3 space-y-1 text-slate-700">
+                <p>30 días - $4</p>
+                <p>90 días - $9.50</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/593992064254?text=Hola,%20quiero%20activar%20YouTube%20Premium"
+             target="_blank"
+             class="btn block mt-5 bg-[#061b3a] text-white text-center p-3 rounded-xl font-bold">
+            Comprar YouTube
+          </a>
+        </div>
+
+        <!-- HBO -->
+        <div class="card bg-white p-5 rounded-3xl">
+          <div class="flex items-start gap-4">
+            <div class="service-logo flex items-center justify-center text-2xl">🎬</div>
+            <div class="min-w-0">
+              <h3 class="font-bold text-2xl">HBO Max</h3>
+              <div class="mt-3 space-y-1 text-slate-700">
+                <p>30 días - $4</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/593992064254?text=Hola,%20quiero%20activar%20HBO%20Max"
+             target="_blank"
+             class="btn block mt-5 bg-[#061b3a] text-white text-center p-3 rounded-xl font-bold">
+            Comprar HBO Max
+          </a>
+        </div>
+
+        <!-- Crunchyroll -->
+        <div class="card bg-white p-5 rounded-3xl">
+          <div class="flex items-start gap-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Crunchyroll_Logo.png" alt="Crunchyroll" class="service-logo">
+            <div class="min-w-0">
+              <h3 class="font-bold text-2xl">Crunchyroll</h3>
+              <div class="mt-3 space-y-1 text-slate-700">
+                <p>30 días - $4</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/593992064254?text=Hola,%20quiero%20activar%20Crunchyroll"
+             target="_blank"
+             class="btn block mt-5 bg-[#061b3a] text-white text-center p-3 rounded-xl font-bold">
+            Comprar Crunchyroll
+          </a>
+        </div>
+
+        <!-- Paramount -->
+        <div class="card bg-white p-5 rounded-3xl">
+          <div class="flex items-start gap-4">
+            <div class="service-logo flex items-center justify-center text-2xl">🎥</div>
+            <div class="min-w-0">
+              <h3 class="font-bold text-2xl">Paramount+</h3>
+              <div class="mt-3 space-y-1 text-slate-700">
+                <p>30 días - $5</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/593992064254?text=Hola,%20quiero%20activar%20Paramount%2B"
+             target="_blank"
+             class="btn block mt-5 bg-[#061b3a] text-white text-center p-3 rounded-xl font-bold">
+            Comprar Paramount+
+          </a>
+        </div>
+
+        <!-- Canva -->
+        <div class="card bg-white p-5 rounded-3xl">
+          <div class="flex items-start gap-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Canva_icon_2021.svg" alt="Canva Pro" class="service-logo">
+            <div class="min-w-0">
+              <h3 class="font-bold text-2xl">Canva Pro</h3>
+              <div class="mt-3 space-y-1 text-slate-700">
+                <p>3 meses - $1</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/593992064254?text=Hola,%20quiero%20activar%20Canva%20Pro"
+             target="_blank"
+             class="btn block mt-5 bg-[#061b3a] text-white text-center p-3 rounded-xl font-bold">
+            Comprar Canva Pro
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section class="p-4">
+    <div class="max-w-6xl mx-auto bg-[#061b3a] text-white p-6 rounded-3xl text-center">
+      <h2 class="text-2xl md:text-4xl font-bold">Activa tu cuenta ahora</h2>
+      <p class="mt-3 text-slate-300">Escríbeme y te ayudo a activar tu servicio rápido.</p>
+      <a href="https://wa.me/593992064254?text=Hola,%20quiero%20información%20para%20activar%20mi%20cuenta"
+         target="_blank"
+         class="btn block mt-5 bg-green-500 py-3 rounded-xl font-bold text-lg">
+        🔥 ESCRÍBEME
+      </a>
+    </div>
+  </section>
+
+  <!-- BOTONES FIJOS -->
+  <div class="fixed bottom-5 right-5 flex flex-col gap-2 z-50">
+    <a href="#catalogo" class="bg-amber-400 text-black px-5 py-3 rounded-full shadow-xl font-bold text-center">
+      Catálogo
+    </a>
+    <a href="https://wa.me/593992064254?text=Hola,%20quiero%20comprar%20una%20cuenta%20premium"
+       target="_blank"
+       class="bg-green-500 text-white px-5 py-3 rounded-full shadow-xl font-bold text-center">
+      WhatsApp
+    </a>
+  </div>
 
 </body>
 </html>
